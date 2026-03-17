@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Designix 360</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = { 
+            theme: { 
+                extend: { 
+                    colors: { 
+                        brand: '#FF6600', 
+                        flam_pink: '#FF007B', 
+                        flam_purple: '#7928CA', 
+                        dark: '#050505', 
+                        surface_light: '#141414' 
+                    }, 
+                    fontFamily: { sans: ['Inter', 'sans-serif'] }, 
+                    backgroundImage: { 'flam-gradient': 'linear-gradient(to right, #FF6600, #FF007B, #7928CA)' }
+                } 
+            } 
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; background-color: #050505; } ::selection { background-color: #FF007B; color: #fff; } 
+        .glass-nav { background: rgba(5, 5, 5, 0.4); backdrop-filter: blur(24px); border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .glass-btn { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.2); color: #ffffff; transition: all 0.4s ease; cursor: pointer; }
+        .glass-btn:hover { background: rgba(255, 255, 255, 0.15); border-color: rgba(255, 0, 123, 0.6); transform: translateY(-2px); box-shadow: 0 10px 20px rgba(255, 0, 123, 0.15); }
+        
+        .doodle-pattern { 
+            background-image: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cg stroke='%23ffffff' stroke-width='1.5' fill='none' fill-rule='evenodd' opacity='0.05'%3E%3Cpath d='M20 20h20v20H20zM80 80h20v20H80zM50 20A10 10 0 1 1 50 40A10 10 0 1 1 50 20zM20 80A10 10 0 1 1 20 100A10 10 0 1 1 20 80zM80 20l20 20M100 20L80 40M40 80l20 20M60 80L40 100'/%3E%3C/g%3E%3C/svg%3E"); 
+            background-size: 120px; 
+        }
+        
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s ease; } .reveal.active { opacity: 1; transform: translateY(0); }
+        
+        /* Custom Input Styles */
+        .glass-input { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); color: white; transition: all 0.3s ease; }
+        .glass-input:focus { outline: none; border-color: #FF007B; background: rgba(255,255,255,0.05); }
+        
+        /* Gradient & Premium Text Stroke */
+        .text-gradient { background: linear-gradient(to right, #FF6600, #FF007B, #7928CA); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .text-stroke { -webkit-text-stroke: 2px rgba(255,255,255,0.2); color: transparent; transition: all 0.5s ease; }
+        .text-stroke:hover { color: rgba(255, 255, 255, 0.05); -webkit-text-stroke: 2px #FF007B; text-shadow: 0 0 20px rgba(255,0,123,0.3); }
+
+        /* Chatbot Scrollbar Style */
+        #chat-messages::-webkit-scrollbar { width: 4px; }
+        #chat-messages::-webkit-scrollbar-track { background: transparent; }
+        #chat-messages::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-dark text-white font-sans overflow-x-hidden relative">
+
+    <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        <div class="absolute top-0 left-0 w-full h-full doodle-pattern"></div>
+    </div>
+
+    <nav class="fixed top-0 w-full z-50 py-4 px-6 md:px-12 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto flex justify-between items-center relative z-20">
+            <a href="index.html" class="flex items-center">
+                <img src="evr-logo.png" onerror="this.onerror=null; this.src='2.png';" alt="Designix 360 Logo" class="h-8 md:h-10 w-auto object-contain">
+            </a>
+            
+            <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-300 items-center">
+                <a href="index.html" class="hover:text-white transition">Home</a>
+                <a href="about.html" class="hover:text-white transition">About Us</a>
+                
+                <div class="relative group">
+                    <a href="services.html" class="flex items-center gap-1 hover:text-white transition py-4">Services <span class="text-[10px] opacity-60">▼</span></a>
+                    <div class="absolute left-0 top-full w-56 bg-surface_light/90 backdrop-blur-2xl border border-white/10 rounded-2xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0 p-2">
+                        <a href="graphic-design.html" class="block px-4 py-3 hover:bg-white/10 rounded-xl transition text-sm text-white">Graphic Design</a>
+                        <a href="web-dev.html" class="block px-4 py-3 hover:bg-white/10 rounded-xl transition text-sm text-white">Web Development</a>
+                        <a href="ui-ux.html" class="block px-4 py-3 hover:bg-white/10 rounded-xl transition text-sm text-white">UI/UX Design</a>
+                        <a href="marketing.html" class="block px-4 py-3 hover:bg-white/10 rounded-xl transition text-sm text-white">Social Media</a>
+                    </div>
+                </div>
+                
+                <a href="courses.html" class="hover:text-white transition">Academy</a>
+                <a href="portfolio.html" class="hover:text-white transition">Portfolio</a>
+                <a href="contact.html" class="text-white drop-shadow-md border-b border-brand pb-1 transition">Contact</a>
+            </div>
+            
+            <a href="https://wa.me/923484329715" target="_blank" class="hidden md:inline-flex glass-btn px-6 py-2.5 rounded-full font-semibold text-sm border-brand/50 text-brand">WhatsApp Us</a>
+        </div>
+    </nav>
+
+    <header class="relative pt-40 pb-20 px-6 md:px-12 z-10 overflow-hidden border-b border-white/5 bg-[#050505]">
+        <div class="absolute inset-0 z-0 opacity-30 bg-[url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.05\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+        
+        <div class="absolute top-0 right-[10%] w-[500px] h-[500px] bg-brand/10 rounded-full blur-[120px] mix-blend-screen pointer-events-none"></div>
+        <div class="absolute bottom-0 left-[10%] w-[400px] h-[400px] bg-flam_purple/10 rounded-full blur-[100px] mix-blend-screen pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto reveal relative z-20 flex flex-col items-center text-center mt-12">
+            
+            <div class="inline-flex items-center gap-3 px-5 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl mb-8 shadow-lg shadow-black/50">
+                <span class="relative flex h-2.5 w-2.5">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+                </span>
+                <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-300">We are online and ready</span>
+            </div>
+
+            <h1 class="text-6xl md:text-8xl lg:text-[7rem] font-black tracking-tighter leading-[0.95] mb-8 uppercase flex flex-col items-center">
+                <span class="text-stroke">LET'S BUILD</span>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand via-flam_pink to-flam_purple drop-shadow-[0_0_20px_rgba(255,0,123,0.3)] mt-2">TOGETHER.</span>
+            </h1>
+            
+            <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto font-light leading-relaxed">
+                Have a massive project in mind or want to join our academy? Drop us a line below, and our experts will get back to you within 24 hours.
+            </p>
+        </div>
+    </header>
+
+    <section class="min-h-screen pt-32 pb-20 px-6 md:px-12 relative z-10 flex items-center">
+        <div class="max-w-7xl mx-auto w-full flex flex-col lg:flex-row gap-16 lg:gap-24 items-center reveal">
+            
+            <div class="lg:w-1/2 w-full">
+                <h2 class="text-5xl md:text-6xl lg:text-7xl font-black text-white tracking-tighter leading-[0.9] mb-4">
+                    START YOUR<br>
+                    <span class="text-gradient">EMPIRE.</span>
+                </h2>
+                
+                <p class="text-gray-400 text-lg mb-12 max-w-md font-light leading-relaxed">
+                    Whether you need a complete rebrand, a high-performance website, or a marketing strategy that scales, our team is ready to build it.
+                </p>
+
+                <div class="space-y-4">
+                    <div class="p-5 md:p-6 rounded-3xl bg-[#0d0d0d] border border-white/5 flex items-center gap-5 hover:border-flam_pink/30 transition duration-300">
+                        <div class="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center text-flam_pink shrink-0">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        </div>
+                        <div>
+                            <p class="text-[10px] text-gray-500 font-bold tracking-widest uppercase mb-1">DIRECT EMAIL</p>
+                            <a href="mailto:info@designix360.com" class="text-white font-semibold text-lg hover:text-flam_pink transition">info@designix360.com</a>
+                        </div>
+                    </div>
+
+                    <div class="p-5 md:p-6 rounded-3xl bg-[#0d0d0d] border border-white/5 flex items-center gap-5 hover:border-brand/30 transition duration-300">
+                        <div class="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center text-brand shrink-0">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                        </div>
+                        <div>
+                            <p class="text-[10px] text-gray-500 font-bold tracking-widest uppercase mb-1">PHONE / WHATSAPP</p>
+                            <a href="tel:03484329715" class="text-white font-semibold text-lg hover:text-brand transition">0348 4329715</a>
+                        </div>
+                    </div>
+
+                    <div class="p-5 md:p-6 rounded-3xl bg-[#0d0d0d] border border-white/5 flex items-center gap-5 hover:border-flam_purple/30 transition duration-300">
+                        <div class="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center text-flam_purple shrink-0">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        </div>
+                        <div>
+                            <p class="text-[10px] text-gray-500 font-bold tracking-widest uppercase mb-1">GLOBAL HEADQUARTERS</p>
+                            <p class="text-white font-semibold text-lg">Rawalpindi, Pakistan</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:w-1/2 w-full relative">
+                <div class="absolute inset-0 bg-gradient-to-br from-flam_pink/10 to-flam_purple/10 rounded-[2.5rem] blur-xl pointer-events-none"></div>
+                
+                <div class="relative p-8 md:p-10 rounded-[2.5rem] bg-gradient-to-b from-[#111] to-[#080808] border border-white/10 shadow-2xl">
+                    <h2 class="text-3xl font-bold text-white mb-2">Send a Message</h2>
+                    <p class="text-gray-400 text-sm mb-8">Fill out the form below and our team will get back to you within 24 hours.</p>
+
+                    <form action="#" method="POST" class="space-y-5">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <input type="text" placeholder="Your Name" class="w-full px-5 py-4 rounded-2xl glass-input text-sm" required>
+                            <input type="email" placeholder="Your Email" class="w-full px-5 py-4 rounded-2xl glass-input text-sm" required>
+                        </div>
+                        <div class="relative">
+                            <select class="w-full px-5 py-4 rounded-2xl glass-input text-sm text-gray-400 appearance-none cursor-pointer" required>
+                                <option value="" disabled selected>Select a Service</option>
+                                <option value="branding">Brand Identity</option>
+                                <option value="uiux">UI/UX Design</option>
+                                <option value="web">Web Development</option>
+                                <option value="graphic">Graphic Design</option>
+                                <option value="3d">3D Illustrations</option>
+                            </select>
+                            <div class="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-gray-500">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </div>
+                        </div>
+                        <textarea rows="5" placeholder="Tell us about your project..." class="w-full px-5 py-4 rounded-2xl glass-input text-sm resize-none" required></textarea>
+                        <div class="pt-2">
+                            <button type="submit" class="relative p-[1px] w-full rounded-2xl bg-gradient-to-r from-brand via-flam_pink to-flam_purple group hover:shadow-[0_0_20px_rgba(255,0,123,0.3)] transition duration-300">
+                                <div class="bg-[#0a0a0a] w-full h-full py-4 rounded-2xl flex items-center justify-center font-bold text-white group-hover:bg-opacity-0 transition duration-300">
+                                    Submit Request
+                                </div>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="bg-[#050505] py-6 px-6 md:px-12 border-t border-white/10 relative z-10 mt-10">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-gray-500 font-medium">
+            <div class="flex items-center gap-4">
+                <img src="evr-logo.png" onerror="this.onerror=null; this.src='2.png';" alt="Designix 360 Logo" class="h-6 w-auto object-contain">
+                <p>&copy; 2026 Designix 360. All Rights Reserved.</p>
+            </div>
+            
+            <div class="flex items-center gap-6">
+                <div class="flex items-center gap-4">
+                    <a href="https://linkedin.com" target="_blank" class="text-gray-400 hover:text-white transition-all duration-300">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <a href="https://instagram.com" target="_blank" class="text-gray-400 hover:text-white transition-all duration-300">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd" /></svg>
+                    </a>
+                    <a href="https://facebook.com" target="_blank" class="text-gray-400 hover:text-white transition-all duration-300">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg>
+                    </a>
+                </div>
+
+                <div class="hidden md:block w-px h-5 bg-white/20"></div>
+
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-white transition">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition">Terms of Use</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="chatbot-container" class="fixed bottom-6 right-6 z-[100] flex flex-col items-end">
+        <div id="chat-window" class="hidden w-[300px] md:w-[350px] bg-[#0a0a0a]/95 backdrop-blur-2xl border border-white/10 rounded-3xl shadow-[0_10px_40px_rgba(255,0,123,0.2)] mb-4 overflow-hidden transition-all duration-300">
+            <div class="bg-gradient-to-r from-brand via-flam_pink to-flam_purple p-4 flex justify-between items-center">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center"><span class="text-white text-xl">🤖</span></div>
+                    <div><h3 class="text-white font-bold text-sm">Designix AI</h3><p class="text-white/70 text-[10px]">Online | Intelligent Assistant</p></div>
+                </div>
+                <button onclick="toggleChat()" class="text-white/70 hover:text-white transition"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+            </div>
+            <div class="h-[300px] p-4 overflow-y-auto flex flex-col gap-4 bg-[#050505]/50" id="chat-messages">
+                <div class="flex gap-2 max-w-[85%]">
+                    <div class="w-6 h-6 rounded-full bg-gradient-to-tr from-flam_pink to-flam_purple flex-shrink-0 flex items-center justify-center text-[10px]">🤖</div>
+                    <div class="bg-white/10 border border-white/5 rounded-2xl rounded-tl-sm p-3 text-sm text-gray-300">Hi! Welcome to Designix 360. You can ask me anything about our services, pricing, websites, or logos!</div>
+                </div>
+            </div>
+            <div class="p-3 border-t border-white/10 bg-[#0a0a0a]">
+                <form id="chat-form" class="flex gap-2" onsubmit="sendMessage(event)">
+                    <input type="text" id="chat-input" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-sm text-white focus:outline-none focus:border-flam_pink transition" placeholder="Ask anything..." autocomplete="off">
+                    <button type="submit" class="w-10 h-10 rounded-xl bg-flam_pink hover:bg-brand text-white flex items-center justify-center transition shrink-0 shadow-lg shadow-flam_pink/20"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg></button>
+                </form>
+            </div>
+        </div>
+        <button onclick="toggleChat()" class="w-14 h-14 rounded-full bg-gradient-to-r from-brand via-flam_pink to-flam_purple text-white shadow-[0_10px_25px_rgba(255,0,123,0.4)] hover:scale-110 hover:shadow-[0_15px_35px_rgba(255,0,123,0.6)] transition duration-300 flex items-center justify-center z-50">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+        </button>
+    </div>
+
+    <script>
+        function reveal() { document.querySelectorAll(".reveal").forEach(el => { if(el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add("active"); }); } window.addEventListener("scroll", reveal); setTimeout(reveal, 100); 
+        function toggleChat() { document.getElementById('chat-window').classList.toggle('hidden'); }
+        function getBotResponse(message) {
+            let msg = message.toLowerCase();
+            if (msg.match(/\b(hi|hello|hey|hy|salam|helo)\b/)) return "Hello! I am the Designix 360 AI Assistant. Are you looking to build a website, a logo, or need marketing services?";
+            else if (msg.match(/\b(yes|yeah|yep|sure|haan|han)\b/)) return "Awesome! You can check our Services page or Contact us directly so our team can start working on your project.";
+            else if (msg.match(/\b(no|nope|nai|nahi)\b/)) return "No worries at all! Let me know if you change your mind or need any other information.";
+            else if (msg.match(/\b(ok|okay|acha|theek|good|great|thanks|thank you|thx)\b/)) return "You're welcome! Let me know if you need anything else.";
+            else if (msg.match(/\b(course|courses|class|classes|learn|teach|academy|student)\b/)) return "We offer live classes for Graphic Design, UI/UX, Web Dev, Marketing, and AI Tools! The fees range from 7,500 to 10,000 PKR per month. We also have Special Student Discounts!";
+            else if (msg.match(/\b(student|discount|offer|scholarship)\b/)) return "Yes! We have a special discount for students. Just show your valid Student ID on WhatsApp and get an exclusive flat discount on any course.";
+            else if (msg.match(/\b(owner|founder|who made|who are you|hifza|ceo|teacher|instructor)\b/)) return "Designix 360 is led by Hifza Majeed, a Senior Graphic Designer with 8+ years of practical agency experience!";
+            else if (msg.match(/\b(price|cost|charges|fee|fees|rate|how much|money)\b/)) return "For Agency Services, please contact us for a quote. For Academy courses, fees range from 7,500 to 10,000 PKR. Ask about our student discounts!";
+            else if (msg.match(/\b(service|services|what do you do|offer|build|make)\b/)) return "We offer 4 main services: Graphic & Logo Design, UI/UX Design, Web Development, and Social Media Marketing.";
+            else if (msg.match(/\b(logo|branding|graphic|design|illustration|3d)\b/)) return "We create stunning logos, full brand identities, and even 3D cartoon illustrations. Check our Portfolio!";
+            else if (msg.match(/\b(web|website|site|development|code|coding)\b/)) return "We build fast, secure, and modern websites, from simple portfolios to complex E-commerce stores.";
+            else if (msg.match(/\b(contact|email|phone|call|reach|number|location|where)\b/)) return "You can email us at info@designix360.com or call/WhatsApp us at 0348 4329715. We are online 24/7 to support you!";
+            else return "That's an interesting question! Since I'm an AI, I suggest checking our 'About Us' or 'Services' page, or sending a quick message through the Contact page so our human experts can assist you perfectly.";
+        }
+        function sendMessage(e) {
+            e.preventDefault(); const input = document.getElementById('chat-input'); const message = input.value.trim(); if(!message) return; const chatBox = document.getElementById('chat-messages');
+            chatBox.innerHTML += `<div class="flex gap-2 max-w-[85%] self-end ms-auto"><div class="bg-flam_pink/20 border border-flam_pink/30 rounded-2xl rounded-tr-sm p-3 text-sm text-white">${message}</div></div>`;
+            input.value = ''; chatBox.scrollTop = chatBox.scrollHeight; const botReply = getBotResponse(message);
+            setTimeout(() => { chatBox.innerHTML += `<div class="flex gap-2 max-w-[85%]"><div class="w-6 h-6 rounded-full bg-gradient-to-tr from-flam_pink to-flam_purple flex-shrink-0 flex items-center justify-center text-[10px]">🤖</div><div class="bg-white/10 border border-white/5 rounded-2xl rounded-tl-sm p-3 text-sm text-gray-300">${botReply}</div></div>`; chatBox.scrollTop = chatBox.scrollHeight; }, 800);
+        }
+    </script>
+</body>
+</html>

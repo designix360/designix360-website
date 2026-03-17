@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Designix 360 | Full Service Digital Agency</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = { 
+            theme: { 
+                extend: { 
+                    colors: { brand: '#FF6600', flam_pink: '#FF007B', flam_purple: '#7928CA', dark: '#050505', surface: '#0a0a0a', surface_light: '#141414' }, 
+                    fontFamily: { sans: ['Inter', 'sans-serif'] }, 
+                    backgroundImage: { 
+                        'flam-gradient': 'linear-gradient(to right, #FF6600, #FF007B, #7928CA)',
+                        /* Yahan background image lagai gayi hai. Make sure aapki file ka naam hero-bg.jpg ho */
+                        'hero-artwork': "url('hero-bg.jpg')"
+                    },
+                    animation: { 
+                        'spin-border': 'spin-border 4s linear infinite', 
+                        'marquee': 'marquee 30s linear infinite', 
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+                    }, 
+                    keyframes: { 
+                        'spin-border': { '0%': { transform: 'rotate(0deg)' }, '100%': { transform: 'rotate(360deg)' } }, 
+                        'marquee': { '0%': { transform: 'translateX(0)' }, '100%': { transform: 'translateX(-50%)' } }, 
+                        'float': { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } } 
+                    } 
+                } 
+            } 
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; background-color: #050505; } 
+        ::selection { background-color: #FF007B; color: #fff; } 
+        .glass-nav { background: rgba(5, 5, 5, 0.4); backdrop-filter: blur(24px); border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .glass-btn { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); color: #ffffff; box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.02); transition: all 0.3s ease; }
+        .glass-btn:hover { background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.3); transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4); }
+        .glass-card { background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.06); border-radius: 24px; position: relative; overflow: hidden; transition: all 0.4s ease; }
+        .glass-card:hover { border-color: rgba(255, 102, 0, 0.4); transform: translateY(-8px); box-shadow: 0 20px 40px rgba(255, 102, 0, 0.15); }
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); } .reveal.active { opacity: 1; transform: translateY(0); }
+        .delay-1 { transition-delay: 0.2s; } 
+        .client-logo { opacity: 0.5; transition: all 0.4s ease; } .client-logo:hover { opacity: 1; transform: scale(1.08); }
+        #chat-messages::-webkit-scrollbar { width: 4px; } #chat-messages::-webkit-scrollbar-track { background: transparent; } #chat-messages::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 10px; }
+        
+        /* Premium Text Gradients for Left Side */
+        .text-gradient-orange-pink { background: linear-gradient(to right, #FF6600, #FF007B); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .text-gradient-pink-purple { background: linear-gradient(to right, #FF007B, #7928CA); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        /* Background Glows (Smoky Orbs) */
+        .smoke-orb { position: absolute; border-radius: 50%; mix-blend-mode: screen; pointer-events: none; filter: blur(120px); opacity: 0.3; }
+        .smoke-1 { background: radial-gradient(circle, #FF6600 0%, transparent 70%); width: 50vw; height: 50vw; top: -10vw; left: -10vw; }
+        .smoke-2 { background: radial-gradient(circle, #7928CA 0%, transparent 70%); width: 45vw; height: 45vw; top: 10vw; right: -10vw; }
+        .smoke-3 { background: radial-gradient(circle, #FF007B 0%, transparent 70%); width: 50vw; height: 50vw; bottom: -20vw; left: 20vw; }
+    </style>
+</head>
+<body class="bg-dark text-white font-sans overflow-x-hidden relative">
+
+    <nav class="fixed top-0 w-full z-50 py-4 px-6 md:px-12 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto flex justify-between items-center relative z-20">
+            <a href="index.html" class="flex items-center">
+                <img src="evr-logo.png" onerror="this.onerror=null; this.src='2.png';" alt="Designix 360 Logo" class="h-8 md:h-10 w-auto object-contain">
+            </a>
+            
+            <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-300 items-center">
+                <a href="index.html" class="text-white drop-shadow-md border-b border-white pb-1">Home</a>
+                <a href="about.html" class="hover:text-white transition">About Us</a>
+                
+                <div class="relative group">
+                    <a href="services.html" class="flex items-center gap-1 hover:text-white transition py-4">Services <span class="text-[10px] opacity-60">▼</span></a>
+                    <div class="absolute left-0 top-full w-56 bg-surface_light/90 backdrop-blur-2xl border border-white/10 rounded-2xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0 p-2">
+                        <a href="graphic-design.html" class="block px-4 py-3 hover:bg-white/10 rounded-xl transition text-sm text-white">Graphic Design</a>
+                        <a href="web-dev.html" class="block px-4 py-3 hover:bg-white/10 rounded-xl transition text-sm text-white">Web Development</a>
+                        <a href="ui-ux.html" class="block px-4 py-3 hover:bg-white/10 rounded-xl transition text-sm text-white">UI/UX Design</a>
+                        <a href="marketing.html" class="block px-4 py-3 hover:bg-white/10 rounded-xl transition text-sm text-white">Social Media</a>
+                    </div>
+                </div>
+                
+                <a href="portfolio.html" class="hover:text-white transition">Portfolio</a>
+                <a href="courses.html" class="hover:text-white transition hover:text-brand">Academy</a>
+                <a href="contact.html" class="hover:text-white transition">Contact</a>
+            </div>
+            
+            <div class="hidden md:flex items-center">
+                <a href="contact.html" class="glass-btn px-6 py-2.5 rounded-full font-bold text-sm text-white border-white/20 hover:bg-white hover:text-dark">Get Quote</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative min-h-screen flex items-center justify-center pt-32 pb-16 overflow-hidden bg-[#050505]">
+        
+        <div class="absolute inset-0 z-0 bg-hero-artwork bg-cover bg-center bg-no-repeat opacity-25"></div>
+        
+        <div class="smoke-orb smoke-1 animate-pulse-slow"></div>
+        <div class="smoke-orb smoke-2 animate-pulse-slow" style="animation-delay: 2s;"></div>
+        <div class="smoke-orb smoke-3 animate-pulse-slow" style="animation-delay: 4s;"></div>
+
+        <div class="absolute inset-0 z-0 bg-gradient-to-r from-[#050505] via-[#050505]/80 to-transparent"></div>
+
+        <div class="max-w-7xl mx-auto px-6 md:px-12 w-full relative z-20 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            
+            <div class="reveal">
+                <h1 class="text-[5rem] md:text-[6.5rem] lg:text-[7.5rem] font-black tracking-tighter leading-[0.85] uppercase">
+                    <span class="block text-white">WE ENGINEER</span>
+                    <span class="block text-gradient-orange-pink py-1 drop-shadow-[0_0_15px_rgba(255,102,0,0.3)]">DIGITAL</span>
+                    <span class="block text-gradient-pink-purple drop-shadow-[0_0_15px_rgba(121,40,202,0.3)]">EMPIRES.</span>
+                </h1>
+                
+                <div class="flex items-center gap-4 mt-8 mb-10">
+                    <div class="w-16 h-[2px] bg-gradient-to-r from-brand to-flam_purple"></div>
+                    <span class="text-gray-300 font-bold uppercase tracking-[0.2em] text-[11px]">Design • Develop • Dominate</span>
+                </div>
+                
+                <a href="contact.html" class="relative group p-[1.5px] rounded-full overflow-hidden transition-all duration-300 inline-block bg-gradient-to-r from-brand via-flam_pink to-flam_purple shadow-[0_0_20px_rgba(255,102,0,0.2)]">
+                    <span class="block px-8 py-3.5 bg-[#050505] rounded-full text-white text-xs font-bold tracking-[0.15em] uppercase group-hover:bg-transparent transition-all duration-300 relative z-10">
+                        Start Building
+                    </span>
+                </a>
+            </div>
+
+            <div class="reveal delay-1 relative flex justify-center lg:justify-end animate-float mt-10 lg:mt-0">
+                
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] bg-gradient-to-tr from-flam_pink/30 to-flam_purple/30 blur-[60px] rounded-full pointer-events-none"></div>
+
+                <div class="relative p-[1.5px] rounded-3xl group overflow-hidden w-full max-w-[380px] bg-white/10 shadow-2xl">
+                    
+                    <span class="absolute inset-[-150%] bg-[conic-gradient(from_90deg,transparent_0_300deg,#FF007B_360deg)] animate-spin-border"></span>
+                    
+                    <div class="relative z-10 rounded-[23px] bg-[#0a0a0a] p-8 flex flex-col h-full border border-white/5">
+                        
+                        <div class="flex justify-between items-center border-b border-white/10 pb-5 mb-6">
+                            <span class="text-[11px] text-gray-300 font-bold tracking-[0.2em] uppercase">Agency Success</span>
+                            <span class="w-3 h-3 rounded-full bg-brand shadow-[0_0_10px_#FF6600] animate-pulse"></span>
+                        </div>
+                        
+                        <div class="space-y-8">
+                            <div class="border-b border-white/10 pb-6">
+                                <h4 class="text-[4rem] font-black text-white tracking-tighter leading-none mb-2">150<span class="text-brand">+</span></h4>
+                                <p class="text-[10px] text-gray-500 font-bold tracking-[0.15em] uppercase flex items-center gap-2">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-brand"></span> • Projects Done
+                                </p>
+                            </div>
+                            <div class="border-b border-white/10 pb-6">
+                                <h4 class="text-[4rem] font-black text-white tracking-tighter leading-none mb-2">98<span class="text-flam_pink">%</span></h4>
+                                <p class="text-[10px] text-gray-500 font-bold tracking-[0.15em] uppercase flex items-center gap-2">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-flam_pink"></span> • Successful Rating
+                                </p>
+                            </div>
+                            <div>
+                                <h4 class="text-[4rem] font-black text-white tracking-tighter leading-none mb-2">8<span class="text-flam_purple">+</span></h4>
+                                <p class="text-[10px] text-gray-500 font-bold tracking-[0.15em] uppercase flex items-center gap-2">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-flam_purple"></span> • Years Mastery
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="mt-8 pt-6 border-t border-white/5 text-center">
+                            <a href="contact.html" class="text-sm font-bold text-flam_purple hover:text-flam_pink transition-colors duration-300 flex items-center justify-center gap-2">
+                                Start Your Journey 
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+    <section class="py-16 px-6 md:px-12 relative z-10 bg-[#0a0a0a] border-b border-white/5">
+        <div class="max-w-7xl mx-auto reveal relative z-10">
+            <div class="text-center mb-12">
+                <h4 class="text-brand font-bold uppercase tracking-widest text-sm mb-3 drop-shadow-md">Our Network</h4>
+                <h2 class="text-3xl font-black text-white drop-shadow-xl uppercase tracking-tighter">Trusted By Industry Leaders.</h2>
+            </div>
+            
+            <div class="overflow-hidden relative group py-8 px-4 glass-card border-none bg-dark/30">
+                <div class="flex animate-marquee space-x-16 md:space-x-24 items-center w-max">
+                    <img src="1.png" alt="Client Logo 1" class="h-16 md:h-24 w-auto max-w-[200px] md:max-w-[250px] object-contain client-logo flex-shrink-0">
+                    <img src="4.png" alt="Client Logo 4" class="h-16 md:h-24 w-auto max-w-[200px] md:max-w-[250px] object-contain client-logo flex-shrink-0">
+                    <img src="5.png" alt="Client Logo 5" class="h-16 md:h-24 w-auto max-w-[200px] md:max-w-[250px] object-contain client-logo flex-shrink-0">
+                    <img src="6.png" alt="Client Logo 6" class="h-16 md:h-24 w-auto max-w-[200px] md:max-w-[250px] object-contain client-logo flex-shrink-0">
+                    <img src="7.png" alt="Client Logo 7" class="h-16 md:h-24 w-auto max-w-[200px] md:max-w-[250px] object-contain client-logo flex-shrink-0">
+                    <img src="8.png" alt="Client Logo 8" class="h-16 md:h-24 w-auto max-w-[200px] md:max-w-[250px] object-contain client-logo flex-shrink-0">
+                    <img src="9.png" alt="Client Logo 9" class="h-16 md:h-24 w-auto max-w-[200px] md:max-w-[250px] object-contain client-logo flex-shrink-0">
+                    <img src="10.png" alt="Client Logo 10" class="h-16 md:h-24 w-auto max-w-[200px] md:max-w-[250px] object-contain client-logo flex-shrink-0">
+                    <img src="1.png" alt="Client Logo 1" class="h-16 md:h-24 w-auto max-w-[200px] md:max-w-[250px] object-contain client-logo flex-shrink-0">
+                    <img src="4.png" alt="Client Logo 4" class="h-16 md:h-24 w-auto max-w-[200px] md:max-w-[250px] object-contain client-logo flex-shrink-0">
+                    <img src="5.png" alt="Client Logo 5" class="h-16 md:h-24 w-auto max-w-[200px] md:max-w-[250px] object-contain client-logo flex-shrink-0">
+                    <img src="6.png" alt="Client Logo 6" class="h-16 md:h-24 w-auto max-w-[200px] md:max-w-[250px] object-contain client-logo flex-shrink-0">
+                    <img src="7.png" alt="Client Logo 7" class="h-16 md:h-24 w-auto max-w-[200px] md:max-w-[250px] object-contain client-logo flex-shrink-0">
+                    <img src="8.png" alt="Client Logo 8" class="h-16 md:h-24 w-auto max-w-[200px] md:max-w-[250px] object-contain client-logo flex-shrink-0">
+                    <img src="9.png" alt="Client Logo 9" class="h-16 md:h-24 w-auto max-w-[200px] md:max-w-[250px] object-contain client-logo flex-shrink-0">
+                    <img src="10.png" alt="Client Logo 10" class="h-16 md:h-24 w-auto max-w-[200px] md:max-w-[250px] object-contain client-logo flex-shrink-0">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-32 px-6 md:px-12 relative z-10 bg-transparent border-b border-white/5">
+        <div class="max-w-7xl mx-auto reveal relative z-10">
+            <div class="text-center mb-24">
+                <h4 class="text-flam_pink font-bold uppercase tracking-widest text-sm mb-3 drop-shadow-md">Our Process</h4>
+                <h2 class="text-4xl md:text-5xl font-black tracking-tight text-white drop-shadow-xl">HOW WE BUILD EMPIRES.</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
+                <div class="hidden md:block absolute top-[4.5rem] left-[15%] right-[15%] h-[2px] bg-gradient-to-r from-brand via-flam_pink to-flam_purple opacity-20 z-0"></div>
+                <div class="relative z-10 text-center reveal">
+                    <div class="w-24 h-24 mx-auto glass-card flex items-center justify-center rounded-full mb-8 text-4xl font-black text-brand shadow-[0_0_30px_rgba(255,102,0,0.15)] border-brand/30">01</div>
+                    <h3 class="text-2xl font-bold mb-4 text-white">Discovery & Strategy</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed max-w-sm mx-auto">
+                        <span class="text-gray-300 font-medium">Brand ki aawaz samajhna.</span> We dive deep into your vision, target audience, and market gap to craft a bulletproof digital blueprint.
+                    </p>
+                </div>
+                <div class="relative z-10 text-center reveal delay-1">
+                    <div class="w-24 h-24 mx-auto glass-card flex items-center justify-center rounded-full mb-8 text-4xl font-black text-flam_pink shadow-[0_0_30px_rgba(255,0,123,0.15)] border-flam_pink/30">02</div>
+                    <h3 class="text-2xl font-bold mb-4 text-white">Design & Engineering</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed max-w-sm mx-auto">
+                        <span class="text-gray-300 font-medium">Pixel-perfect execution.</span> Bringing ideas to life through striking visuals, 3D illustrations, and flawless code architecture.
+                    </p>
+                </div>
+                <div class="relative z-10 text-center reveal delay-2">
+                    <div class="w-24 h-24 mx-auto glass-card flex items-center justify-center rounded-full mb-8 text-4xl font-black text-flam_purple shadow-[0_0_30px_rgba(121,40,202,0.15)] border-flam_purple/30">03</div>
+                    <h3 class="text-2xl font-bold mb-4 text-white">Launch & Dominate</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed max-w-sm mx-auto">
+                        <span class="text-gray-300 font-medium">Market mein utarna.</span> We deploy your project and initiate data-driven campaigns to outshine your competitors instantly.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-32 px-6 md:px-12 relative z-10 bg-transparent border-b border-white/5">
+        <div class="max-w-7xl mx-auto text-center reveal">
+            <h4 class="text-flam_pink font-bold uppercase tracking-widest text-sm mb-3 drop-shadow-md">Our Capabilities</h4>
+            <h2 class="text-4xl md:text-5xl font-black tracking-tight mb-16 text-white drop-shadow-xl">THE 360° SERVICES.</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
+                <a href="graphic-design.html" class="glass-card p-8 text-left group reveal">
+                    <div class="mb-6 text-brand group-hover:scale-110 transition duration-500 drop-shadow-[0_0_15px_rgba(255,102,0,0.6)]">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12"><path stroke-linecap="round" stroke-linejoin="round" d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.813-3.814a1.5 1.5 0 00-2.12-2.12l-3.814 3.813a15.995 15.995 0 00-4.648 4.764m3.42 3.42a6.823 6.823 0 01-3.42-3.42" /></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-white group-hover:text-brand transition-colors">Graphic Design</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Logos, branding kits, 3D illustrations, and complete corporate stationery.</p>
+                </a>
+                <a href="ui-ux.html" class="glass-card p-8 text-left group reveal delay-1">
+                    <div class="mb-6 text-flam_pink group-hover:scale-110 transition duration-500 drop-shadow-[0_0_15px_rgba(255,0,123,0.6)]">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" /></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-white group-hover:text-flam_pink transition-colors">UI/UX Design</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">User-friendly wireframes and prototypes for mobile apps and web platforms.</p>
+                </a>
+                <a href="web-dev.html" class="glass-card p-8 text-left group reveal delay-2">
+                    <div class="mb-6 text-flam_purple group-hover:scale-110 transition duration-500 drop-shadow-[0_0_15px_rgba(121,40,202,0.6)]">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" /></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-white group-hover:text-flam_purple transition-colors">Web Development</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Responsive, fast-loading, and secure websites coded perfectly for your brand.</p>
+                </a>
+                <a href="marketing.html" class="glass-card p-8 text-left group reveal delay-1">
+                    <div class="mb-6 text-brand group-hover:scale-110 transition duration-500 drop-shadow-[0_0_15px_rgba(255,102,0,0.6)]">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12"><path stroke-linecap="round" stroke-linejoin="round" d="M7.217 10.907a2.25 2.25 0 100 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186l9.566-5.314m-9.566 7.5l9.566 5.314m0 0a2.25 2.25 0 103.935 2.186 2.25 2.25 0 00-3.935-2.186zm0-12.814a2.25 2.25 0 103.933-2.185 2.25 2.25 0 00-3.933 2.185z" /></svg>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-white group-hover:text-brand transition-colors">Social Media</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed">Content creation, ad campaigns, and organic growth strategies for your business.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 px-6 md:px-12 relative overflow-hidden text-white z-10 bg-transparent">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-16 reveal relative z-10">
+            <div class="md:w-1/2 relative z-10">
+                <div class="flex items-center gap-4 mb-6">
+                    <span class="relative flex h-3 w-3"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-flam_pink opacity-75"></span><span class="relative inline-flex rounded-full h-3 w-3 bg-flam_pink shadow-[0_0_10px_#FF007B]"></span></span>
+                    <span class="text-flam_pink font-bold uppercase tracking-widest text-sm drop-shadow-md">Always Online</span>
+                </div>
+                <h2 class="text-5xl md:text-6xl font-black mb-6 leading-tight drop-shadow-2xl">24/7 DEDICATED <br><span class="text-transparent bg-clip-text bg-flam-gradient">SUPPORT.</span></h2>
+                <p class="text-gray-400 text-lg leading-relaxed mb-10">The digital world never sleeps, and neither do we. Whether you are in New York, London, or Dubai, our team is always active.</p>
+                <a href="contact.html" class="glass-btn px-8 py-3.5 rounded-full font-bold text-sm inline-flex items-center gap-3 relative z-20 hover:scale-105 transition">
+                    Chat with us <svg class="w-4 h-4 relative z-20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </a>
+            </div>
+            <div class="md:w-1/2 flex justify-center relative z-10">
+                <div class="relative w-72 h-72 md:w-96 md:h-96 rounded-full border border-dashed border-white/10 flex items-center justify-center animate-spin-slow">
+                    <div class="absolute w-full h-full rounded-full border-t-2 border-flam_pink animate-spin-reverse blur-[1px]"></div>
+                    <div class="absolute w-3/4 h-3/4 rounded-full border-b-2 border-brand animate-spin-slow blur-[1px]"></div>
+                    <div class="absolute inset-0 flex items-center justify-center flex-col" style="animation: none; transform: rotate(0deg);">
+                        <div class="glass-card w-40 h-40 rounded-full flex items-center justify-center flex-col shadow-[0_0_40px_rgba(255,102,0,0.3)] border border-white/5 bg-[#0a0a0a]/80">
+                            <h3 class="text-5xl font-black text-white drop-shadow-[0_0_15px_rgba(255,102,0,0.5)]">24<span class="text-brand">/</span>7</h3>
+                            <p class="text-[10px] uppercase tracking-widest text-gray-300 mt-1 font-bold">Active</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-[#050505] py-6 px-6 md:px-12 border-t border-white/10 mt-10 relative z-10">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-gray-500 font-medium">
+            <div class="flex items-center gap-4">
+                <img src="evr-logo.png" onerror="this.onerror=null; this.src='2.png';" alt="Designix 360 Logo" class="h-6 w-auto object-contain">
+                <p>&copy; 2026 Designix 360. All Rights Reserved.</p>
+            </div>
+            
+            <div class="flex items-center gap-6">
+                <div class="flex items-center gap-4">
+                    <a href="https://linkedin.com" target="_blank" class="text-gray-400 hover:text-white transition-all duration-300">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <a href="https://instagram.com" target="_blank" class="text-gray-400 hover:text-white transition-all duration-300">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd" /></svg>
+                    </a>
+                    <a href="https://facebook.com" target="_blank" class="text-gray-400 hover:text-white transition-all duration-300">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg>
+                    </a>
+                </div>
+                
+                <div class="hidden md:block w-px h-5 bg-white/20"></div>
+                
+                <div class="flex gap-4">
+                    <a href="#" class="hover:text-white transition">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition">Terms of Use</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="chatbot-container" class="fixed bottom-6 right-6 z-[100] flex flex-col items-end">
+        <div id="chat-window" class="hidden w-[300px] md:w-[350px] bg-[#0a0a0a]/95 backdrop-blur-2xl border border-white/10 rounded-3xl shadow-[0_10px_40px_rgba(255,0,123,0.2)] mb-4 overflow-hidden transition-all duration-300">
+            <div class="bg-gradient-to-r from-brand via-flam_pink to-flam_purple p-4 flex justify-between items-center">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center"><span class="text-white text-xl">🤖</span></div>
+                    <div><h3 class="text-white font-bold text-sm">Designix AI</h3><p class="text-white/70 text-[10px]">Online | Intelligent Assistant</p></div>
+                </div>
+                <button onclick="toggleChat()" class="text-white/70 hover:text-white transition"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+            </div>
+            <div class="h-[300px] p-4 overflow-y-auto flex flex-col gap-4 bg-[#050505]/50" id="chat-messages">
+                <div class="flex gap-2 max-w-[85%]">
+                    <div class="w-6 h-6 rounded-full bg-gradient-to-tr from-flam_pink to-flam_purple flex-shrink-0 flex items-center justify-center text-[10px]">🤖</div>
+                    <div class="bg-white/10 border border-white/5 rounded-2xl rounded-tl-sm p-3 text-sm text-gray-300">Hi! Welcome to Designix 360. You can ask me anything about our services, pricing, websites, or logos!</div>
+                </div>
+            </div>
+            <div class="p-3 border-t border-white/10 bg-[#0a0a0a]">
+                <form id="chat-form" class="flex gap-2" onsubmit="sendMessage(event)">
+                    <input type="text" id="chat-input" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-sm text-white focus:outline-none focus:border-flam_pink transition" placeholder="Ask anything..." autocomplete="off">
+                    <button type="submit" class="w-10 h-10 rounded-xl bg-flam_pink hover:bg-brand text-white flex items-center justify-center transition shrink-0 shadow-lg shadow-flam_pink/20"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg></button>
+                </form>
+            </div>
+        </div>
+        <button onclick="toggleChat()" class="w-14 h-14 rounded-full bg-gradient-to-r from-brand via-flam_pink to-flam_purple text-white shadow-[0_10px_25px_rgba(255,0,123,0.4)] hover:scale-110 hover:shadow-[0_15px_35px_rgba(255,0,123,0.6)] transition duration-300 flex items-center justify-center z-50">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+        </button>
+    </div>
+
+    <script>
+        function reveal() { document.querySelectorAll(".reveal").forEach(el => { if(el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add("active"); }); } window.addEventListener("scroll", reveal); setTimeout(reveal, 100); 
+        function toggleChat() { document.getElementById('chat-window').classList.toggle('hidden'); }
+        function getBotResponse(message) {
+            let msg = message.toLowerCase();
+            if (msg.match(/\b(hi|hello|hey|hy|salam|helo)\b/)) return "Hello! I am the Designix 360 AI Assistant. Are you looking to build a website, a logo, or need marketing services?";
+            else if (msg.match(/\b(yes|yeah|yep|sure|haan|han)\b/)) return "Awesome! You can check our Services page or Contact us directly so our team can start working on your project.";
+            else if (msg.match(/\b(no|nope|nai|nahi)\b/)) return "No worries at all! Let me know if you change your mind or need any other information.";
+            else if (msg.match(/\b(ok|okay|acha|theek|good|great|thanks|thank you|thx)\b/)) return "You're welcome! Let me know if you need anything else.";
+            else if (msg.match(/\b(course|courses|class|classes|learn|teach|academy|student)\b/)) return "We offer live classes for Graphic Design, UI/UX, Web Dev, Marketing, and AI Tools! The fees range from 7,500 to 10,000 PKR per month. We also have Special Student Discounts!";
+            else if (msg.match(/\b(student|discount|offer|scholarship)\b/)) return "Yes! We have a special discount for students. Just show your valid Student ID on WhatsApp and get an exclusive flat discount on any course.";
+            else if (msg.match(/\b(owner|founder|who made|who are you|hifza|ceo|teacher|instructor)\b/)) return "Designix 360 is led by Hifza Majeed, a Senior Graphic Designer with 8+ years of practical agency experience!";
+            else if (msg.match(/\b(price|cost|charges|fee|fees|rate|how much|money)\b/)) return "For Agency Services, please contact us for a quote. For Academy courses, fees range from 7,500 to 10,000 PKR. Ask about our student discounts!";
+            else if (msg.match(/\b(service|services|what do you do|offer|build|make)\b/)) return "We offer 4 main services: Graphic & Logo Design, UI/UX Design, Web Development, and Social Media Marketing.";
+            else if (msg.match(/\b(logo|branding|graphic|design|illustration|3d)\b/)) return "We create stunning logos, full brand identities, and even 3D cartoon illustrations. Check our Portfolio!";
+            else if (msg.match(/\b(web|website|site|development|code|coding)\b/)) return "We build fast, secure, and modern websites, from simple portfolios to complex E-commerce stores.";
+            else if (msg.match(/\b(contact|email|phone|call|reach|number|location|where)\b/)) return "You can email us at info@designix360.com or call/WhatsApp us at 0348 4329715. We are online 24/7 to support you!";
+            else return "That's an interesting question! Since I'm an AI, I suggest checking our 'About Us' or 'Services' page, or sending a quick message through the Contact page so our human experts can assist you perfectly.";
+        }
+        function sendMessage(e) {
+            e.preventDefault(); const input = document.getElementById('chat-input'); const message = input.value.trim(); if(!message) return; const chatBox = document.getElementById('chat-messages');
+            chatBox.innerHTML += `<div class="flex gap-2 max-w-[85%] self-end ms-auto"><div class="bg-flam_pink/20 border border-flam_pink/30 rounded-2xl rounded-tr-sm p-3 text-sm text-white">${message}</div></div>`;
+            input.value = ''; chatBox.scrollTop = chatBox.scrollHeight; const botReply = getBotResponse(message);
+            setTimeout(() => { chatBox.innerHTML += `<div class="flex gap-2 max-w-[85%]"><div class="w-6 h-6 rounded-full bg-gradient-to-tr from-flam_pink to-flam_purple flex-shrink-0 flex items-center justify-center text-[10px]">🤖</div><div class="bg-white/10 border border-white/5 rounded-2xl rounded-tl-sm p-3 text-sm text-gray-300">${botReply}</div></div>`; chatBox.scrollTop = chatBox.scrollHeight; }, 800);
+        }
+    </script>
+</body>
+</html>

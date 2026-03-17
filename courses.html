@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academy & Courses | Designix 360</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = { 
+            theme: { 
+                extend: { 
+                    colors: { 
+                        brand: '#FF6600', 
+                        flam_pink: '#FF007B',
+                        flam_purple: '#7928CA',
+                        dark: '#050505', 
+                        surface: '#0a0a0a',
+                        surface_light: '#141414',
+                    }, 
+                    fontFamily: { sans: ['Inter', 'sans-serif'] }, 
+                    backgroundImage: {
+                        'flam-gradient': 'linear-gradient(to right, #FF6600, #FF007B, #7928CA)',
+                        'conic-flam': 'conic-gradient(#FF6600, #FF007B, #7928CA, #FF6600)',
+                    }
+                } 
+            } 
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; background-color: #050505; } 
+        ::selection { background-color: #FF007B; color: #fff; } 
+        
+        .glass-nav { background: rgba(5, 5, 5, 0.4); backdrop-filter: blur(24px); border-bottom: 1px solid rgba(255,255,255,0.05); }
+        
+        .glass-btn {
+            background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1); color: #ffffff;
+            box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.02); transition: all 0.3s ease;
+        }
+        .glass-btn:hover {
+            background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .glass-card { 
+            background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+            backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.06); 
+            border-radius: 24px; position: relative; overflow: hidden; transition: all 0.4s ease;
+        }
+        .glass-card:hover {
+            border-color: rgba(255, 102, 0, 0.4); transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(255, 102, 0, 0.15);
+        }
+
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        .doodle-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='120' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg stroke='rgba(255,255,255,0.03)' stroke-width='1.5' fill='none'%3E%3Crect x='20' y='22.5' width='15' height='15' /%3E%3Ccircle cx='50' cy='30' r='8' /%3E%3Cpath d='M80 22 L95 38 M95 22 L80 38' /%3E%3C/g%3E%3C/svg%3E");
+            background-size: 120px 60px;
+            background-attachment: fixed;
+            z-index: 0;
+        }
+
+        .course-img { transition: transform 0.6s ease; }
+        .glass-card:hover .course-img { transform: scale(1.08); }
+        .text-gradient { background: linear-gradient(to right, #FF6600, #FF007B, #7928CA); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        #chat-messages::-webkit-scrollbar { width: 4px; }
+        #chat-messages::-webkit-scrollbar-track { background: transparent; }
+        #chat-messages::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-dark text-white font-sans overflow-x-hidden relative">
+
+    <div class="fixed inset-0 doodle-pattern pointer-events-none"></div>
+    <div class="fixed top-[10%] left-[20%] w-[500px] h-[500px] bg-brand/10 rounded-full blur-[150px] mix-blend-screen pointer-events-none"></div>
+
+    <nav class="fixed top-0 w-full z-50 py-4 px-6 md:px-12 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto flex justify-between items-center relative z-20">
+            <a href="index.html" class="flex items-center">
+                <img src="evr-logo.png" onerror="this.onerror=null; this.src='2.png';" alt="Designix 360 Logo" class="h-8 md:h-10 w-auto object-contain">
+            </a>
+            
+            <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-300 items-center">
+                <a href="index.html" class="hover:text-white transition">Home</a>
+                <a href="about.html" class="hover:text-white transition">About Us</a>
+                
+                <div class="relative group">
+                    <a href="services.html" class="flex items-center gap-1 hover:text-white transition py-4">Services <span class="text-[10px] opacity-60">▼</span></a>
+                    <div class="absolute left-0 top-full w-56 bg-surface_light/90 backdrop-blur-2xl border border-white/10 rounded-2xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0 p-2">
+                        <a href="graphic-design.html" class="block px-4 py-3 hover:bg-white/10 rounded-xl transition text-sm text-white">Graphic Design</a>
+                        <a href="web-dev.html" class="block px-4 py-3 hover:bg-white/10 rounded-xl transition text-sm text-white">Web Development</a>
+                        <a href="ui-ux.html" class="block px-4 py-3 hover:bg-white/10 rounded-xl transition text-sm text-white">UI/UX Design</a>
+                        <a href="marketing.html" class="block px-4 py-3 hover:bg-white/10 rounded-xl transition text-sm text-white">Social Media</a>
+                    </div>
+                </div>
+                
+                <a href="portfolio.html" class="hover:text-white transition">Portfolio</a>
+                <a href="courses.html" class="text-white drop-shadow-md border-b border-flam_purple pb-1 transition">Academy</a>
+                <a href="contact.html" class="hover:text-white transition">Contact</a>
+            </div>
+            
+            <a href="contact.html" class="hidden md:inline-flex glass-btn px-6 py-2.5 rounded-full font-semibold text-sm border-brand/50 text-brand">Get Quote</a>
+        </div>
+    </nav>
+
+    <header class="relative pt-48 pb-20 px-6 md:px-12 z-10 text-center overflow-hidden border-b border-white/5 bg-[#050505]">
+        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2000&auto=format&fit=crop" alt="Online Learning" class="absolute inset-0 w-full h-full object-cover opacity-50 grayscale mix-blend-screen pointer-events-none">
+        <div class="absolute inset-0 bg-gradient-to-b from-[#050505]/20 via-[#050505]/60 to-[#050505] pointer-events-none"></div>
+
+        <div class="max-w-4xl mx-auto reveal relative z-20">
+            <div class="inline-block bg-flam_purple/20 text-flam_purple px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-6 border border-flam_purple/50">Designix Academy</div>
+            <h1 class="text-5xl md:text-7xl font-black tracking-tight leading-tight mb-6">
+                MASTER IN-DEMAND <span class="text-transparent bg-clip-text bg-flam-gradient drop-shadow-[0_0_20px_rgba(121,40,202,0.4)]">DIGITAL SKILLS.</span>
+            </h1>
+            <p class="text-gray-300 text-lg max-w-2xl mx-auto font-light mb-10 drop-shadow-md">Stop watching outdated tutorials. Learn practical, agency-level skills directly from an expert with 8+ years of industry experience. Build your portfolio and start freelancing.</p>
+            
+            <div class="flex flex-wrap justify-center gap-4 mb-10">
+                <span class="px-4 py-2 rounded-full border border-white/10 bg-white/5 text-sm text-gray-300 flex items-center gap-2">
+                    <svg class="w-5 h-5 text-brand" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg> Live Classes
+                </span>
+                <span class="px-4 py-2 rounded-full border border-white/10 bg-white/5 text-sm text-gray-300 flex items-center gap-2">
+                    <svg class="w-5 h-5 text-flam_pink" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg> Agency Level Projects
+                </span>
+                <span class="px-4 py-2 rounded-full border border-white/10 bg-white/5 text-sm text-gray-300 flex items-center gap-2">
+                    <svg class="w-5 h-5 text-flam_purple" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg> Certification
+                </span>
+            </div>
+        </div>
+    </header>
+
+    <section class="py-24 px-6 md:px-12 relative z-10 bg-transparent">
+        <div class="max-w-7xl mx-auto reveal">
+
+            <div class="bg-gradient-to-r from-brand via-flam_pink to-flam_purple p-[2px] rounded-2xl max-w-4xl mx-auto mb-16 reveal relative z-20 shadow-[0_0_30px_rgba(255,0,123,0.3)] hover:scale-[1.02] transition duration-500">
+                <div class="bg-[#0a0a0a] rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-flam_pink/5 pointer-events-none"></div>
+                    <div class="flex items-center gap-4 relative z-10 text-center md:text-left">
+                        <div class="w-14 h-14 rounded-full bg-white/5 flex items-center justify-center shrink-0 border border-white/10">
+                            <svg class="w-8 h-8 text-flam_pink" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 14l9-5-9-5-9 5 9 5z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 14l9-5-9-5-9 5 9 5z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 14v7m0 0l-3-3m3 3l3-3"></path></svg>
+                        </div>
+                        <div>
+                            <h3 class="text-white font-black text-xl md:text-2xl mb-1 uppercase tracking-tight">Special Student Offer!</h3>
+                            <p class="text-gray-400 text-sm">Show your valid Student ID and get a <span class="text-flam_pink font-bold">Flat Discount</span> on all courses. Empowering the youth!</p>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/923484329715?text=Hi! I am a student and I want to claim my special discount for the courses." target="_blank" class="px-8 py-4 rounded-xl bg-white text-dark font-black text-sm hover:bg-gray-200 transition shrink-0 whitespace-nowrap shadow-xl relative z-10">
+                        Claim Discount
+                    </a>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <div class="glass-card group flex flex-col h-full">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1626126525134-fbc865a12159?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover course-img" alt="Graphic Design">
+                        <div class="absolute top-4 right-4 bg-dark/80 backdrop-blur-md px-3 py-1 rounded-full border border-brand/50 text-brand text-xs font-bold uppercase tracking-wider">Most Popular</div>
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-brand transition">Graphic Design & Branding</h3>
+                        <p class="text-gray-400 text-sm mb-6 flex-grow">Master Adobe Illustrator, Photoshop, and Canva. Learn to create premium logos, branding kits, and social media posts from scratch.</p>
+                        
+                        <div class="border-t border-white/10 pt-4 mb-6 flex justify-between items-center">
+                            <div class="text-left">
+                                <p class="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Duration</p>
+                                <p class="text-white text-sm font-medium">2 Months</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Fee / Month</p>
+                                <p class="text-3xl font-black text-brand">Rs. 8,000</p>
+                            </div>
+                        </div>
+                        <a href="https://wa.me/923484329715?text=Hi! I want to enroll in the Graphic Design Course." target="_blank" class="w-full py-3 rounded-xl bg-brand/10 border border-brand/30 text-brand text-center font-bold text-sm hover:bg-brand hover:text-white transition duration-300">Enroll Now</a>
+                    </div>
+                </div>
+
+                <div class="glass-card group flex flex-col h-full">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1618761714954-0b8cd0026356?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover course-img" alt="UI UX Design">
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-flam_pink transition">UI/UX Design Masterclass</h3>
+                        <p class="text-gray-400 text-sm mb-6 flex-grow">Become a Figma expert. Learn wireframing, prototyping, and designing beautiful user interfaces for modern websites and mobile apps.</p>
+                        
+                        <div class="border-t border-white/10 pt-4 mb-6 flex justify-between items-center">
+                            <div class="text-left">
+                                <p class="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Duration</p>
+                                <p class="text-white text-sm font-medium">2 Months</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Fee / Month</p>
+                                <p class="text-3xl font-black text-flam_pink">Rs. 9,000</p>
+                            </div>
+                        </div>
+                        <a href="https://wa.me/923484329715?text=Hi! I want to enroll in the UI/UX Design Course." target="_blank" class="w-full py-3 rounded-xl bg-flam_pink/10 border border-flam_pink/30 text-flam_pink text-center font-bold text-sm hover:bg-flam_pink hover:text-white transition duration-300">Enroll Now</a>
+                    </div>
+                </div>
+
+                <div class="glass-card group flex flex-col h-full">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover course-img" alt="Web Development">
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-flam_purple transition">Front-End Web Dev</h3>
+                        <p class="text-gray-400 text-sm mb-6 flex-grow">Learn HTML, CSS, JavaScript, and Tailwind. Build real-world responsive websites from scratch and deploy them live on the internet.</p>
+                        
+                        <div class="border-t border-white/10 pt-4 mb-6 flex justify-between items-center">
+                            <div class="text-left">
+                                <p class="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Duration</p>
+                                <p class="text-white text-sm font-medium">3 Months</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Fee / Month</p>
+                                <p class="text-3xl font-black text-flam_purple">Rs. 10,000</p>
+                            </div>
+                        </div>
+                        <a href="https://wa.me/923484329715?text=Hi! I want to enroll in the Web Development Course." target="_blank" class="w-full py-3 rounded-xl bg-flam_purple/10 border border-flam_purple/30 text-flam_purple text-center font-bold text-sm hover:bg-flam_purple hover:text-white transition duration-300">Enroll Now</a>
+                    </div>
+                </div>
+
+                <div class="glass-card group flex flex-col h-full relative lg:col-span-2 overflow-hidden border-flam_pink/30 shadow-[0_0_30px_rgba(255,0,123,0.1)]">
+                    <div class="absolute right-0 top-0 w-64 h-full bg-gradient-to-l from-flam_pink/20 to-transparent pointer-events-none"></div>
+                    <div class="flex flex-col md:flex-row h-full">
+                        <div class="md:w-5/12 h-48 md:h-full overflow-hidden relative">
+                            <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover course-img" alt="AI Learning">
+                            <div class="absolute top-4 left-4 bg-flam_pink text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider shadow-lg animate-pulse">New Tech</div>
+                        </div>
+                        <div class="md:w-7/12 p-8 flex flex-col justify-center relative z-10">
+                            <h3 class="text-3xl font-black text-white mb-2 group-hover:text-flam_pink transition">AI Tools & Prompt Engineering</h3>
+                            <p class="text-gray-400 text-sm mb-6 leading-relaxed">The future is AI. Learn how to master tools like ChatGPT, Midjourney, and Canva AI. Supercharge your workflow, generate stunning content, and learn how to make money using Artificial Intelligence.</p>
+                            
+                            <div class="border-t border-white/10 pt-4 mb-6 flex justify-between items-center">
+                                <div class="text-left">
+                                    <p class="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Duration</p>
+                                    <p class="text-white text-sm font-medium">1 Month (Crash Course)</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Total Fee</p>
+                                    <p class="text-4xl font-black text-white drop-shadow-[0_0_10px_rgba(255,0,123,0.5)]">Rs. 8,500</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <a href="https://wa.me/923484329715?text=Hi! I want to enroll in the AI Masterclass." target="_blank" class="flex-1 py-3 rounded-xl bg-gradient-to-r from-flam_pink to-flam_purple text-white text-center font-bold text-sm hover:shadow-[0_0_20px_rgba(255,0,123,0.4)] transition duration-300">Enroll in AI Course</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-card group flex flex-col h-full">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover course-img" alt="Social Media Marketing">
+                    </div>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-brand transition">Social Media Marketing</h3>
+                        <p class="text-gray-400 text-sm mb-6 flex-grow">Learn how to grow businesses online. Master Meta Ads (Facebook/Instagram), content strategy, and YouTube channel growth.</p>
+                        
+                        <div class="border-t border-white/10 pt-4 mb-6 flex justify-between items-center">
+                            <div class="text-left">
+                                <p class="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Duration</p>
+                                <p class="text-white text-sm font-medium">1.5 Months</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Fee / Month</p>
+                                <p class="text-3xl font-black text-brand">Rs. 7,500</p>
+                            </div>
+                        </div>
+                        <a href="https://wa.me/923484329715?text=Hi! I want to enroll in the Marketing Course." target="_blank" class="w-full py-3 rounded-xl bg-white/5 border border-white/10 text-white text-center font-bold text-sm hover:bg-white/10 transition duration-300">Enroll Now</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-[#050505] py-6 px-6 md:px-12 border-t border-white/10 relative z-10">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-gray-500 font-medium">
+            <div class="flex items-center gap-4">
+                <img src="evr-logo.png" onerror="this.onerror=null; this.src='2.png';" alt="Designix 360 Logo" class="h-6 w-auto object-contain">
+                <p>&copy; 2026 Designix 360. All Rights Reserved.</p>
+            </div>
+            
+            <div class="flex items-center gap-6">
+                <div class="flex items-center gap-4">
+                    <a href="https://linkedin.com" target="_blank" class="text-gray-400 hover:text-white transition-all duration-300">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <a href="https://instagram.com" target="_blank" class="text-gray-400 hover:text-white transition-all duration-300">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd" /></svg>
+                    </a>
+                    <a href="https://facebook.com" target="_blank" class="text-gray-400 hover:text-white transition-all duration-300">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg>
+                    </a>
+                </div>
+
+                <div class="hidden md:block w-px h-5 bg-white/20"></div>
+
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-white transition">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition">Terms of Use</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="chatbot-container" class="fixed bottom-6 right-6 z-[100] flex flex-col items-end">
+        <div id="chat-window" class="hidden w-[300px] md:w-[350px] bg-[#0a0a0a]/95 backdrop-blur-2xl border border-white/10 rounded-3xl shadow-[0_10px_40px_rgba(255,0,123,0.2)] mb-4 overflow-hidden transition-all duration-300">
+            <div class="bg-gradient-to-r from-brand via-flam_pink to-flam_purple p-4 flex justify-between items-center">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center">
+                        <span class="text-white text-xl">🤖</span>
+                    </div>
+                    <div>
+                        <h3 class="text-white font-bold text-sm">Designix AI</h3>
+                        <p class="text-white/70 text-[10px]">Online | Ask about Courses</p>
+                    </div>
+                </div>
+                <button onclick="toggleChat()" class="text-white/70 hover:text-white transition">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+
+            <div class="h-[300px] p-4 overflow-y-auto flex flex-col gap-4 bg-[#050505]/50" id="chat-messages">
+                <div class="flex gap-2 max-w-[85%]">
+                    <div class="w-6 h-6 rounded-full bg-gradient-to-tr from-flam_pink to-flam_purple flex-shrink-0 flex items-center justify-center text-[10px]">🤖</div>
+                    <div class="bg-white/10 border border-white/5 rounded-2xl rounded-tl-sm p-3 text-sm text-gray-300">
+                        Hi! Welcome to Designix Academy. Are you looking to enroll in a course? I can help with fees and discounts!
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-3 border-t border-white/10 bg-[#0a0a0a]">
+                <form id="chat-form" class="flex gap-2" onsubmit="sendMessage(event)">
+                    <input type="text" id="chat-input" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-sm text-white focus:outline-none focus:border-flam_pink transition" placeholder="Ask about fees or classes..." autocomplete="off">
+                    <button type="submit" class="w-10 h-10 rounded-xl bg-flam_pink hover:bg-brand text-white flex items-center justify-center transition shrink-0 shadow-lg shadow-flam_pink/20">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <button onclick="toggleChat()" class="w-14 h-14 rounded-full bg-gradient-to-r from-brand via-flam_pink to-flam_purple text-white shadow-[0_10px_25px_rgba(255,0,123,0.4)] hover:scale-110 hover:shadow-[0_15px_35px_rgba(255,0,123,0.6)] transition duration-300 flex items-center justify-center z-50">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+        </button>
+    </div>
+
+    <script>
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 100;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        setTimeout(reveal, 100); 
+
+        function toggleChat() {
+            document.getElementById('chat-window').classList.toggle('hidden');
+        }
+
+        function getBotResponse(message) {
+            let msg = message.toLowerCase();
+            
+            if (msg.match(/\b(hi|hello|hey|hy|salam|helo)\b/)) {
+                return "Hello! Are you interested in our creative services or do you want to join our Online Classes?";
+            } 
+            else if (msg.match(/\b(yes|yeah|yep|sure|haan|han)\b/)) {
+                return "Great! You can click the 'Enroll Now' buttons on this page to message us directly on WhatsApp.";
+            } 
+            else if (msg.match(/\b(course|courses|class|classes|learn|teach|academy|student)\b/)) {
+                return "We offer live classes for Graphic Design, UI/UX, Web Dev, Marketing, and AI Tools! The fees range from 7,500 to 10,000 PKR per month. We also have Special Student Discounts!";
+            }
+            else if (msg.match(/\b(student|discount|offer|scholarship)\b/)) {
+                return "Yes! We have a special discount for students. Just show your valid Student ID on WhatsApp and get an exclusive flat discount on any course.";
+            }
+            else if (msg.match(/\b(ai|artificial intelligence|chatgpt|midjourney)\b/)) {
+                return "Our new AI Masterclass is a 1-month crash course for just Rs. 8,500! You will learn ChatGPT, Midjourney, and how to monetize AI skills.";
+            }
+            else if (msg.match(/\b(price|cost|charges|fee|fees|rate|how much|money)\b/)) {
+                return "Course fees per month are: Graphic Design (8,000 PKR), UI/UX (9,000 PKR), Web Dev (10,000 PKR), Marketing (7,500 PKR), and AI Course (8,500 PKR total). Ask us about the Student Discount!";
+            }
+            else if (msg.match(/\b(owner|founder|who made|who are you|hifza|ceo|teacher|instructor)\b/)) {
+                return "You will be learning directly from Hifza Majeed, a Senior Graphic Designer with 8+ years of practical agency experience!";
+            }
+            else if (msg.match(/\b(contact|email|phone|call|reach|number|location|where)\b/)) {
+                return "You can WhatsApp or call us at 0348 4329715 to secure your admission. Or email us at info@designix360.com.";
+            } 
+            else {
+                return "That's a great question! For detailed course outlines or specific questions, please click 'WhatsApp Us' at the bottom to talk to our team directly.";
+            }
+        }
+
+        function sendMessage(e) {
+            e.preventDefault();
+            const input = document.getElementById('chat-input');
+            const message = input.value.trim();
+            if(!message) return;
+
+            const chatBox = document.getElementById('chat-messages');
+            
+            chatBox.innerHTML += `
+                <div class="flex gap-2 max-w-[85%] self-end ms-auto">
+                    <div class="bg-flam_pink/20 border border-flam_pink/30 rounded-2xl rounded-tr-sm p-3 text-sm text-white">
+                        ${message}
+                    </div>
+                </div>
+            `;
+            input.value = '';
+            chatBox.scrollTop = chatBox.scrollHeight;
+
+            const botReply = getBotResponse(message);
+
+            setTimeout(() => {
+                chatBox.innerHTML += `
+                    <div class="flex gap-2 max-w-[85%]">
+                        <div class="w-6 h-6 rounded-full bg-gradient-to-tr from-flam_pink to-flam_purple flex-shrink-0 flex items-center justify-center text-[10px]">🤖</div>
+                        <div class="bg-white/10 border border-white/5 rounded-2xl rounded-tl-sm p-3 text-sm text-gray-300">
+                            ${botReply}
+                        </div>
+                    </div>
+                `;
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }, 800);
+        }
+    </script>
+</body>
+</html>
