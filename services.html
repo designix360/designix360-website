@@ -16,7 +16,8 @@
                     colors: { brand: '#FF6600', flam_pink: '#FF007B', flam_purple: '#7928CA', dark: '#050505', surface: '#0a0a0a', surface_light: '#141414' }, 
                     fontFamily: { sans: ['Inter', 'sans-serif'] }, 
                     backgroundImage: { 
-                        'flam-gradient': 'linear-gradient(to right, #FF6600, #FF007B, #7928CA)'
+                        'flam-gradient': 'linear-gradient(to right, #FF6600, #FF007B, #7928CA)',
+                        'hero-artwork': "url('hero-bg.jpg')"
                     },
                     animation: { 
                         'pulse-slow': 'pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite',
@@ -111,11 +112,14 @@
         <a href="contact.html" class="text-3xl font-black text-flam_pink mt-4 tracking-tighter">Get Quote.</a>
     </div>
 
-    <header class="relative pt-40 pb-20 px-5 md:px-12 z-10 text-center">
+    <header class="relative pt-40 pb-20 px-5 md:px-12 z-10 text-center overflow-hidden">
+        <div class="absolute inset-0 z-0 bg-hero-artwork bg-cover bg-center bg-no-repeat opacity-25"></div>
+        <div class="absolute inset-0 z-0 bg-gradient-to-b from-[#050505]/30 via-[#050505]/80 to-[#080808]"></div>
+
         <div class="smoke-orb smoke-1 animate-pulse-slow"></div>
         <div class="smoke-orb smoke-2 animate-pulse-slow" style="animation-delay: 2s;"></div>
         
-        <div class="max-w-4xl mx-auto">
+        <div class="max-w-4xl mx-auto relative z-20">
             <h4 class="text-flam_pink font-bold uppercase tracking-widest text-xs md:text-sm mb-4">What We Do Best</h4>
             <h1 class="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter uppercase mb-6 drop-shadow-xl leading-tight">
                 THE <span class="text-transparent bg-clip-text bg-flam-gradient">360° DIGITAL</span> SOLUTIONS.
