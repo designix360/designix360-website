@@ -49,7 +49,6 @@
         .smoke-1 { background: radial-gradient(circle, #FF6600 0%, transparent 70%); width: 70vw; height: 70vw; top: -10vw; left: -20vw; }
         .smoke-2 { background: radial-gradient(circle, #7928CA 0%, transparent 70%); width: 60vw; height: 60vw; top: 10vw; right: -20vw; }
 
-        /* Exact XOXO Geometric Pattern */
         .xoxo-pattern { position: relative; background-color: #080808; }
         .xoxo-pattern::before {
             content: ''; position: absolute; inset: 0;
@@ -60,7 +59,6 @@
         }
         .xoxo-pattern > div { position: relative; z-index: 10; }
         
-        /* Custom list style */
         .service-list li { position: relative; padding-left: 1.5rem; margin-bottom: 0.5rem; color: #9ca3af; font-size: 0.875rem; }
         .service-list li::before { content: '→'; position: absolute; left: 0; color: #FF007B; font-weight: bold; }
     </style>
@@ -112,133 +110,128 @@
         <a href="contact.html" class="text-3xl font-black text-flam_pink mt-4 tracking-tighter">Get Quote.</a>
     </div>
 
-    <header class="relative pt-40 pb-20 px-5 md:px-12 z-10 text-center overflow-hidden">
+    <header class="relative pt-28 lg:pt-40 pb-16 lg:pb-20 px-6 md:px-12 z-10 overflow-hidden border-b border-white/5 bg-[#050505]">
         
-        <div class="absolute inset-0 z-0 opacity-20" style="background-image: url('hero-bg.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;"></div>
+        <div class="absolute inset-0 z-0 opacity-30 bg-[url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'0.05\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
         
-        <div class="absolute inset-0 z-0 bg-gradient-to-b from-[#050505]/40 via-[#050505]/80 to-[#080808]"></div>
+        <div class="absolute top-0 right-[10%] w-[500px] h-[500px] bg-brand/10 rounded-full blur-[120px] mix-blend-screen pointer-events-none"></div>
+        <div class="absolute bottom-0 left-[10%] w-[400px] h-[400px] bg-flam_purple/10 rounded-full blur-[100px] mix-blend-screen pointer-events-none"></div>
 
-        <div class="smoke-orb smoke-1 animate-pulse-slow"></div>
-        <div class="smoke-orb smoke-2 animate-pulse-slow" style="animation-delay: 2s;"></div>
-        
-        <div class="max-w-4xl mx-auto relative z-20">
-            <h4 class="text-flam_pink font-bold uppercase tracking-widest text-xs md:text-sm mb-4">What We Do Best</h4>
-            <h1 class="text-4xl md:text-6xl lg:text-7xl font-black tracking-tighter uppercase mb-6 drop-shadow-xl leading-tight">
-                THE <span class="text-transparent bg-clip-text bg-flam-gradient">360° DIGITAL</span> SOLUTIONS.
+        <div class="max-w-7xl mx-auto reveal relative z-20 flex flex-col items-center text-center mt-4 lg:mt-12">
+            
+            <div class="inline-flex items-center gap-3 px-5 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl mb-8 shadow-lg shadow-black/50">
+                <span class="relative flex h-2.5 w-2.5">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+                </span>
+                <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-300">We are online and ready</span>
+            </div>
+
+            <h1 class="text-6xl md:text-8xl lg:text-[7rem] font-black tracking-tighter leading-[0.95] mb-8 uppercase flex flex-col items-center">
+                <span class="text-stroke">LET'S BUILD</span>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand via-flam_pink to-flam_purple drop-shadow-[0_0_20px_rgba(255,0,123,0.3)] mt-2">TOGETHER.</span>
             </h1>
-            <p class="text-gray-400 text-sm md:text-lg mx-auto leading-relaxed max-w-2xl">
-                From striking visual identities to high-performance web architectures, we offer end-to-end services to scale your brand in the digital world.
+            
+            <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto font-light leading-relaxed">
+                Have a massive project in mind or want to join our academy? Drop us a line below, and our experts will get back to you within 24 hours.
             </p>
         </div>
     </header>
 
-    <section class="py-12 md:py-24 px-5 md:px-12 relative z-10">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
+    <section class="min-h-screen pt-32 pb-20 px-6 md:px-12 relative z-10 flex items-center">
+        <div class="max-w-7xl mx-auto w-full flex flex-col lg:flex-row gap-16 lg:gap-24 items-center reveal">
+            
+            <div class="lg:w-1/2 w-full">
+                <h2 class="text-5xl md:text-6xl lg:text-7xl font-black text-white tracking-tighter leading-[0.9] mb-4">
+                    START YOUR<br>
+                    <span class="text-gradient">EMPIRE.</span>
+                </h2>
                 
-                <div class="glass-card p-8 md:p-12 group reveal">
-                    <div class="w-16 h-16 rounded-2xl bg-brand/10 text-brand flex items-center justify-center mb-8 border border-brand/30 group-hover:scale-110 transition duration-500 shadow-[0_0_20px_rgba(255,102,0,0.2)]">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.813-3.814a1.5 1.5 0 00-2.12-2.12l-3.814 3.813a15.995 15.995 0 00-4.648 4.764m3.42 3.42a6.823 6.823 0 01-3.42-3.42" /></svg>
+                <p class="text-gray-400 text-lg mb-12 max-w-md font-light leading-relaxed">
+                    Whether you need a complete rebrand, a high-performance website, or a marketing strategy that scales, our team is ready to build it.
+                </p>
+
+                <div class="space-y-4">
+                    <div class="p-5 md:p-6 rounded-3xl bg-[#0d0d0d] border border-white/5 flex items-center gap-5 hover:border-flam_pink/30 transition duration-300">
+                        <div class="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center text-flam_pink shrink-0">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        </div>
+                        <div>
+                            <p class="text-[10px] text-gray-500 font-bold tracking-widest uppercase mb-1">DIRECT EMAIL</p>
+                            <a href="mailto:info@designix360.com" class="text-white font-semibold text-lg hover:text-flam_pink transition">info@designix360.com</a>
+                        </div>
                     </div>
-                    <h3 class="text-3xl font-black text-white mb-4 uppercase tracking-tight">Graphic & Branding</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-6">Your brand's visual identity is your first impression. We craft modern, memorable aesthetics that command attention and communicate your core values.</p>
-                    <ul class="service-list mb-8">
-                        <li>Custom Logo Design & Brand Guidelines</li>
-                        <li>3D Cartoon Illustrations & Characters</li>
-                        <li>Social Media Post Designs & Banners</li>
-                        <li>Corporate Stationery & Packaging</li>
-                    </ul>
-                    <a href="graphic-design.html" class="text-brand font-bold text-sm hover:underline flex items-center gap-2">Explore Graphics <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></a>
-                </div>
 
-                <div class="glass-card p-8 md:p-12 group reveal delay-1">
-                    <div class="w-16 h-16 rounded-2xl bg-flam_purple/10 text-flam_purple flex items-center justify-center mb-8 border border-flam_purple/30 group-hover:scale-110 transition duration-500 shadow-[0_0_20px_rgba(121,40,202,0.2)]">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" /></svg>
+                    <div class="p-5 md:p-6 rounded-3xl bg-[#0d0d0d] border border-white/5 flex items-center gap-5 hover:border-brand/30 transition duration-300">
+                        <div class="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center text-brand shrink-0">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                        </div>
+                        <div>
+                            <p class="text-[10px] text-gray-500 font-bold tracking-widest uppercase mb-1">PHONE / WHATSAPP</p>
+                            <a href="tel:03484329715" class="text-white font-semibold text-lg hover:text-brand transition">0348 4329715</a>
+                        </div>
                     </div>
-                    <h3 class="text-3xl font-black text-white mb-4 uppercase tracking-tight">Web Development</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-6">We don't just build websites; we engineer digital platforms. Fast, secure, and highly responsive architectures tailored for your specific business goals.</p>
-                    <ul class="service-list mb-8">
-                        <li>Custom Web Applications (React, Next.js)</li>
-                        <li>E-Commerce Stores (Shopify, WooCommerce)</li>
-                        <li>Corporate & Portfolio Websites</li>
-                        <li>Website Performance Optimization</li>
-                    </ul>
-                    <a href="web-dev.html" class="text-flam_purple font-bold text-sm hover:underline flex items-center gap-2">Explore Web Dev <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></a>
-                </div>
 
-                <div class="glass-card p-8 md:p-12 group reveal">
-                    <div class="w-16 h-16 rounded-2xl bg-flam_pink/10 text-flam_pink flex items-center justify-center mb-8 border border-flam_pink/30 group-hover:scale-110 transition duration-500 shadow-[0_0_20px_rgba(255,0,123,0.2)]">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" /></svg>
-                    </div>
-                    <h3 class="text-3xl font-black text-white mb-4 uppercase tracking-tight">UI/UX Engineering</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-6">User experience defines your product's success. We map out intuitive user journeys and design sleek interfaces that maximize conversions.</p>
-                    <ul class="service-list mb-8">
-                        <li>Wireframing & Interactive Prototyping</li>
-                        <li>Mobile App UI Design (iOS/Android)</li>
-                        <li>Web Dashboard & SaaS Interfaces</li>
-                        <li>User Research & Usability Testing</li>
-                    </ul>
-                    <a href="ui-ux.html" class="text-flam_pink font-bold text-sm hover:underline flex items-center gap-2">Explore UI/UX <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></a>
-                </div>
-
-                <div class="glass-card p-8 md:p-12 group reveal delay-1">
-                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-brand to-flam_pink text-white flex items-center justify-center mb-8 shadow-[0_0_20px_rgba(255,102,0,0.4)] group-hover:scale-110 transition duration-500">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M7.217 10.907a2.25 2.25 0 100 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186l9.566-5.314m-9.566 7.5l9.566 5.314m0 0a2.25 2.25 0 103.935 2.186 2.25 2.25 0 00-3.935-2.186zm0-12.814a2.25 2.25 0 103.933-2.185 2.25 2.25 0 00-3.933 2.185z" /></svg>
-                    </div>
-                    <h3 class="text-3xl font-black text-white mb-4 uppercase tracking-tight">Social Media & Growth</h3>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-6">Scale your audience and multiply your revenue. We design aggressive marketing campaigns that dominate social feeds and generate real leads.</p>
-                    <ul class="service-list mb-8">
-                        <li>Comprehensive Social Media Management</li>
-                        <li>Targeted Ad Campaigns (Meta, Google)</li>
-                        <li>SEO & Organic Traffic Growth</li>
-                        <li>High-Converting Content Creation</li>
-                    </ul>
-                    <a href="marketing.html" class="text-brand font-bold text-sm hover:underline flex items-center gap-2">Explore Marketing <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg></a>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section class="py-20 md:py-24 px-5 md:px-12 relative overflow-hidden text-white z-10 bg-transparent">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12 md:gap-16 reveal relative z-10">
-            <div class="md:w-1/2 relative z-10 text-center md:text-left">
-                <div class="flex items-center justify-center md:justify-start gap-4 mb-4 md:mb-6">
-                    <span class="relative flex h-3 w-3"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-flam_pink opacity-75"></span><span class="relative inline-flex rounded-full h-3 w-3 bg-flam_pink shadow-[0_0_10px_#FF007B]"></span></span>
-                    <span class="text-flam_pink font-bold uppercase tracking-widest text-xs md:text-sm drop-shadow-md">Have a custom project?</span>
-                </div>
-                <h2 class="text-4xl sm:text-5xl md:text-6xl font-black mb-4 md:mb-6 leading-tight drop-shadow-2xl">LET'S DISCUSS <br><span class="text-transparent bg-clip-text bg-flam-gradient">YOUR VISION.</span></h2>
-                <p class="text-gray-400 text-base md:text-lg leading-relaxed mb-8 md:mb-10 px-4 md:px-0">Not sure which service fits your needs? Contact our expert team for a free consultation and project scope definition.</p>
-                <a href="contact.html" class="glass-btn px-6 md:px-8 py-3 md:py-3.5 rounded-full font-bold text-sm inline-flex items-center justify-center gap-3 relative z-20 hover:bg-white hover:text-dark transition">
-                    Get a Custom Quote <svg class="w-4 h-4 relative z-20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                </a>
-            </div>
-            <div class="md:w-1/2 flex justify-center relative z-10">
-                <div class="relative w-64 h-64 sm:w-72 sm:h-72 md:w-96 md:h-96 rounded-full border border-dashed border-white/10 flex items-center justify-center animate-spin-slow">
-                    <div class="absolute w-full h-full rounded-full border-t-2 border-brand animate-spin-reverse blur-[1px]"></div>
-                    <div class="absolute inset-0 flex items-center justify-center flex-col" style="animation: none; transform: rotate(0deg);">
-                        <div class="glass-card w-32 h-32 md:w-40 md:h-40 rounded-full flex items-center justify-center flex-col shadow-[0_0_40px_rgba(255,102,0,0.3)] border border-white/5 bg-[#0a0a0a]/80">
-                            <h3 class="text-4xl md:text-5xl font-black text-white">100<span class="text-brand">%</span></h3>
-                            <p class="text-[9px] md:text-[10px] uppercase tracking-widest text-gray-300 mt-1 font-bold">Custom</p>
+                    <div class="p-5 md:p-6 rounded-3xl bg-[#0d0d0d] border border-white/5 flex items-center gap-5 hover:border-flam_purple/30 transition duration-300">
+                        <div class="w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center text-flam_purple shrink-0">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.243-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        </div>
+                        <div>
+                            <p class="text-[10px] text-gray-500 font-bold tracking-widest uppercase mb-1">GLOBAL HEADQUARTERS</p>
+                            <p class="text-white font-semibold text-lg">Rawalpindi, Pakistan</p>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <div class="lg:w-1/2 w-full relative">
+                <div class="absolute inset-0 bg-gradient-to-br from-flam_pink/10 to-flam_purple/10 rounded-[2.5rem] blur-xl pointer-events-none"></div>
+                
+                <div class="relative p-8 md:p-10 rounded-[2.5rem] bg-gradient-to-b from-[#111] to-[#080808] border border-white/10 shadow-2xl">
+                    <h2 class="text-3xl font-bold text-white mb-2">Send a Message</h2>
+                    <p class="text-gray-400 text-sm mb-8">Fill out the form below and our team will get back to you within 24 hours.</p>
+
+                    <form action="#" method="POST" class="space-y-5">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <input type="text" placeholder="Your Name" class="w-full px-5 py-4 rounded-2xl glass-input text-sm" required>
+                            <input type="email" placeholder="Your Email" class="w-full px-5 py-4 rounded-2xl glass-input text-sm" required>
+                        </div>
+                        <div class="relative">
+                            <select class="w-full px-5 py-4 rounded-2xl glass-input text-sm text-gray-400 appearance-none cursor-pointer" required>
+                                <option value="" disabled selected>Select a Service</option>
+                                <option value="branding">Brand Identity</option>
+                                <option value="uiux">UI/UX Design</option>
+                                <option value="web">Web Development</option>
+                                <option value="graphic">Graphic Design</option>
+                                <option value="3d">3D Illustrations</option>
+                            </select>
+                            <div class="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-gray-500">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </div>
+                        </div>
+                        <textarea rows="5" placeholder="Tell us about your project..." class="w-full px-5 py-4 rounded-2xl glass-input text-sm resize-none" required></textarea>
+                        <div class="pt-2">
+                            <button type="submit" class="relative p-[1px] w-full rounded-2xl bg-gradient-to-r from-brand via-flam_pink to-flam_purple group hover:shadow-[0_0_20px_rgba(255,0,123,0.3)] transition duration-300">
+                                <div class="bg-[#0a0a0a] w-full h-full py-4 rounded-2xl flex items-center justify-center font-bold text-white group-hover:bg-opacity-0 transition duration-300">
+                                    Submit Request
+                                </div>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <footer class="bg-[#050505] py-8 px-5 md:px-12 border-t border-white/10 relative z-10">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-            
-            <div class="flex flex-col md:flex-row items-center gap-2 md:gap-4">
-                <div class="flex items-center gap-2">
-                    <img src="evr-logo.png" onerror="this.onerror=null; this.src='2.png';" alt="Designix 360 Logo" class="h-5 md:h-6 w-auto object-contain">
-                    <span class="text-white font-black text-base md:text-lg tracking-wide">Designix 360</span>
-                </div>
-                <p class="text-[#64748b] text-xs md:text-sm font-medium mt-2 md:mt-0">&copy; 2026 Designix 360. All Rights Reserved.</p>
+    <footer class="bg-[#050505] py-6 px-6 md:px-12 border-t border-white/10 relative z-10 mt-10">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-gray-500 font-medium">
+            <div class="flex items-center gap-4">
+                <img src="evr-logo.png" onerror="this.onerror=null; this.src='2.png';" alt="Designix 360 Logo" class="h-6 w-auto object-contain">
+                <p>&copy; 2026 Designix 360. All Rights Reserved.</p>
             </div>
-
-            <div class="flex flex-col md:flex-row items-center gap-4 md:gap-6">
+            
+            <div class="flex items-center gap-6">
                 <div class="flex items-center gap-4">
                     <a href="https://www.linkedin.com/company/112812148/" target="_blank" class="text-gray-400 hover:text-white transition-all duration-300">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
@@ -250,10 +243,10 @@
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg>
                     </a>
                 </div>
-                
-                <span class="hidden md:block text-white/20">|</span>
-                
-                <div class="flex gap-4 text-[#64748b] text-xs md:text-sm font-medium">
+
+                <div class="hidden md:block w-px h-5 bg-white/20"></div>
+
+                <div class="flex gap-6">
                     <a href="#" class="hover:text-white transition">Privacy Policy</a>
                     <a href="#" class="hover:text-white transition">Terms of Use</a>
                 </div>
@@ -292,7 +285,7 @@
         function reveal() { document.querySelectorAll(".reveal").forEach(el => { if(el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add("active"); }); } window.addEventListener("scroll", reveal); setTimeout(reveal, 100); 
         function toggleChat() { document.getElementById('chat-window').classList.toggle('hidden'); }
         
-        // Mobile Menu Logic Added Here
+        // Mobile Menu Logic
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const closeMenuBtn = document.getElementById('close-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
