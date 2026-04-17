@@ -57,7 +57,6 @@
         .smoke-2 { background: radial-gradient(circle, #7928CA 0%, transparent 70%); width: 60vw; height: 60vw; top: 10vw; right: -20vw; }
         .smoke-3 { background: radial-gradient(circle, #FF007B 0%, transparent 70%); width: 50vw; height: 50vw; bottom: -20vw; left: 20vw; }
 
-        /* Exact Geometric Pattern (Circle, Cross, Square) with Glow */
         .xoxo-pattern { position: relative; background-color: #080808; }
         .xoxo-pattern::before {
             content: ''; position: absolute; inset: 0;
@@ -116,7 +115,7 @@
         <a href="contact.html" class="text-3xl font-black text-flam_pink mt-4 tracking-tighter">Get Quote.</a>
     </div>
 
-    <header class="relative pt-32 pb-16 lg:min-h-screen lg:pt-0 flex items-center justify-center overflow-hidden bg-transparent">
+    <header class="relative pt-28 pb-16 lg:pt-0 lg:min-h-screen flex items-center justify-center overflow-hidden bg-transparent">
         
         <div class="absolute inset-0 z-0 bg-hero-artwork bg-cover bg-center bg-no-repeat opacity-25"></div>
         
@@ -126,9 +125,9 @@
 
         <div class="absolute inset-0 z-0 bg-gradient-to-r from-[#050505] via-[#050505]/80 to-transparent"></div>
 
-        <div class="max-w-7xl mx-auto px-5 md:px-12 w-full relative z-20 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mt-12 lg:mt-0">
+        <div class="max-w-7xl mx-auto px-5 md:px-12 w-full relative z-20 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             
-            <div class="reveal mt-8 md:mt-0">
+            <div class="reveal mt-6 lg:mt-0">
                 <h1 class="text-[3.5rem] leading-[1] sm:text-[5rem] md:text-[6.5rem] lg:text-[7.5rem] font-black tracking-tighter md:leading-[0.85] uppercase">
                     <span class="block text-white">WE ENGINEER</span>
                     <span class="block text-gradient-orange-pink py-1 md:py-2 drop-shadow-[0_0_15px_rgba(255,102,0,0.3)]">DIGITAL</span>
@@ -447,7 +446,6 @@
         function reveal() { document.querySelectorAll(".reveal").forEach(el => { if(el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add("active"); }); } window.addEventListener("scroll", reveal); setTimeout(reveal, 100); 
         function toggleChat() { document.getElementById('chat-window').classList.toggle('hidden'); }
         
-        // Mobile Menu Logic
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const closeMenuBtn = document.getElementById('close-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
