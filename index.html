@@ -16,7 +16,7 @@
     
     <link rel="icon" type="image/png" href="favicon.png">
 
-    <!-- Tailwind CSS (Yeh line design ke liye bohot zaroori hai) -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     
@@ -84,7 +84,7 @@
     <nav class="fixed top-0 w-full z-50 py-4 px-5 md:px-12 glass-nav transition-all duration-300">
         <div class="max-w-7xl mx-auto flex justify-between items-center relative z-20">
             <a href="index.html" class="flex items-center z-50">
-                <img src="evr-logo.png" onerror="this.onerror=null; this.src='2.png';" alt="Designix 360 Logo" class="h-8 md:h-10 w-auto object-contain">
+                <img src="2.png" alt="Designix 360 Logo" class="h-8 md:h-10 w-auto object-contain">
             </a>
             
             <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-300 items-center">
@@ -126,7 +126,8 @@
         <a href="contact.html" class="text-3xl font-black text-flam_pink mt-4 tracking-tighter">Get Quote.</a>
     </div>
 
-    <header class="relative pt-32 md:pt-48 pb-16 md:pb-24 overflow-hidden bg-transparent">
+    <!-- SPACING FIX: Removed min-h-screen & flex center. Added proper padding (pt-28 md:pt-36) -->
+    <header class="relative pt-28 md:pt-36 pb-16 md:pb-24 overflow-hidden bg-transparent">
         
         <div class="absolute inset-0 z-0 bg-hero-artwork bg-cover bg-center bg-no-repeat opacity-25"></div>
         <div class="absolute inset-0 z-0 bg-gradient-to-r from-[#050505] via-[#050505]/80 to-transparent"></div>
@@ -135,7 +136,7 @@
         <div class="smoke-orb smoke-2 animate-pulse-slow" style="animation-delay: 2s;"></div>
         <div class="smoke-orb smoke-3 animate-pulse-slow" style="animation-delay: 4s;"></div>
 
-        <div class="max-w-7xl mx-auto px-5 md:px-12 w-full relative z-20 grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-center">
+        <div class="max-w-7xl mx-auto px-5 md:px-12 w-full relative z-20 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             
             <div class="reveal">
                 <h1 class="text-[3.5rem] leading-[1] sm:text-[5rem] md:text-[6.5rem] lg:text-[7.5rem] font-black tracking-tighter md:leading-[0.85] uppercase">
@@ -156,7 +157,7 @@
                 </a>
             </div>
 
-            <div class="reveal delay-1 relative flex justify-center lg:justify-end animate-float">
+            <div class="reveal delay-1 relative flex justify-center lg:justify-end animate-float mt-8 lg:mt-0">
                 <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[100%] h-[100%] bg-gradient-to-tr from-flam_pink/30 to-flam_purple/30 blur-[60px] rounded-full pointer-events-none"></div>
 
                 <div class="relative p-[1.5px] rounded-3xl group overflow-hidden w-full max-w-[320px] md:max-w-[380px] bg-white/10 shadow-2xl">
@@ -299,7 +300,7 @@
         </div>
     </section>
 
-    <!-- NEW SECTION: CLIENT REVIEWS & TESTIMONIALS -->
+    <!-- CLIENT REVIEWS & TESTIMONIALS -->
     <section class="py-20 md:py-32 px-5 md:px-12 relative z-10 bg-transparent border-b border-white/5">
         <div class="max-w-7xl mx-auto reveal relative z-10">
             <div class="text-center mb-16 md:mb-24">
@@ -415,9 +416,7 @@
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg>
                     </a>
                 </div>
-                
-                <span class="hidden md:block text-white/20">|</span>
-                
+                <div class="hidden md:block w-px h-5 bg-white/20"></div>
                 <div class="flex gap-4 text-[#64748b] text-xs md:text-sm font-medium">
                     <a href="#" class="hover:text-white transition">Privacy Policy</a>
                     <a href="#" class="hover:text-white transition">Terms of Use</a>
@@ -427,18 +426,18 @@
     </footer>
 
     <div id="chatbot-container" class="fixed bottom-6 right-4 md:right-6 z-[100] flex flex-col items-end">
-        <div id="chat-window" class="hidden w-[calc(100vw-2rem)] sm:w-[300px] md:w-[350px] bg-[#0a0a0a]/95 backdrop-blur-2xl border border-white/10 rounded-3xl shadow-[0_10px_40px_rgba(255,0,123,0.3)] mb-4 overflow-hidden transition-all duration-300">
+        <div id="chat-window" class="hidden w-[calc(100vw-2rem)] sm:w-[300px] md:w-[350px] bg-[#0a0a0a]/95 backdrop-blur-2xl border border-white/10 rounded-3xl shadow-[0_10px_40px_rgba(255,0,123,0.2)] mb-4 overflow-hidden transition-all duration-300">
             <div class="bg-gradient-to-r from-brand via-flam_pink to-flam_purple p-4 flex justify-between items-center">
                 <div class="flex items-center gap-3">
                     <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center"><span class="text-white text-xl">🤖</span></div>
-                    <div><h3 class="text-white font-bold text-sm">Designix AI</h3><p class="text-white/70 text-[10px]">Online | Assistant</p></div>
+                    <div><h3 class="text-white font-bold text-sm">Designix AI</h3><p class="text-white/70 text-[10px]">Online | Intelligent Assistant</p></div>
                 </div>
                 <button onclick="toggleChat()" class="text-white/70 hover:text-white transition p-1"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
             </div>
             <div class="h-[250px] md:h-[300px] p-4 overflow-y-auto flex flex-col gap-4 bg-[#050505]/50" id="chat-messages">
                 <div class="flex gap-2 max-w-[85%]">
                     <div class="w-6 h-6 rounded-full bg-gradient-to-tr from-flam_pink to-flam_purple flex-shrink-0 flex items-center justify-center text-[10px]">🤖</div>
-                    <div class="bg-white/10 border border-white/5 rounded-2xl rounded-tl-sm p-3 text-xs md:text-sm text-gray-300">Hi! Welcome to Designix 360. Ap in charon services ke bare main kuch bhi puch sakte hain ya online classes ka puch sakte hain!</div>
+                    <div class="bg-white/10 border border-white/5 rounded-2xl rounded-tl-sm p-3 text-xs md:text-sm text-gray-300">Hi! Welcome to Designix 360. You can ask me anything about our services, pricing, websites, or logos!</div>
                 </div>
             </div>
             <div class="p-3 border-t border-white/10 bg-[#0a0a0a]">
@@ -449,20 +448,42 @@
             </div>
         </div>
         <button onclick="toggleChat()" class="w-14 h-14 rounded-full bg-gradient-to-r from-brand via-flam_pink to-flam_purple text-white shadow-[0_10px_25px_rgba(255,0,123,0.4)] hover:scale-110 hover:shadow-[0_15px_35px_rgba(255,0,123,0.6)] transition duration-300 flex items-center justify-center z-50">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
         </button>
     </div>
 
     <script>
         function reveal() { document.querySelectorAll(".reveal").forEach(el => { if(el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add("active"); }); } window.addEventListener("scroll", reveal); setTimeout(reveal, 100); 
-        
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn'); const closeMenuBtn = document.getElementById('close-menu-btn'); const mobileMenu = document.getElementById('mobile-menu'); mobileMenuBtn.addEventListener('click', () => { mobileMenu.classList.remove('translate-x-full'); }); closeMenuBtn.addEventListener('click', () => { mobileMenu.classList.add('translate-x-full'); });
-        
         function toggleChat() { document.getElementById('chat-window').classList.toggle('hidden'); }
         
-        function getBotResponse(message) { let msg = message.toLowerCase(); if (msg.match(/\b(hi|hello|hey|salam)\b/)) return "Hello! I am the Designix 360 AI Assistant. Are you looking to build a website, a logo, or need marketing services?"; else if (msg.match(/\b(logo|branding|graphic)\b/)) return "We offer complete graphic and logo design services, including custom brand strategies. Special student discount offer is also available!"; else if (msg.match(/\b(price|cost|how much|student discount)\b/)) return "For student special discount offer is available on academy classes only. For agency services tailored quote will provide."; else if (msg.match(/\b(course|courses|class|classes|learn)\b/)) return "We offer live classes for Graphic & Logo Design, UI/UX Design, Web Dev, Marketing, and special AI tools training. We offer special student discount offer, inquire now!"; else return "That's an interesting question! Since I'm an AI, I suggest checking our Services page or directly Contacting us so our experts can assist you."; }
-        
-        document.getElementById('chat-form').addEventListener('submit', function(e) { e.preventDefault(); const input = document.getElementById('chat-input'); const message = input.value.trim(); if(!message) return; const msgBox = document.getElementById('chat-messages'); msgBox.innerHTML += `<div class="flex gap-2 items-start self-end max-w-[85%] justify-end ms-auto"><div class="bg-brand rounded-xl p-3 text-xs md:text-sm text-white">${message}</div></div>`; input.value = ''; msgBox.scrollTop = msgBox.scrollHeight; const botReply = getBotResponse(message); setTimeout(() => { msgBox.innerHTML += `<div class="flex gap-2 items-start max-w-[85%]"><span class="flex-shrink-0 w-6 h-6 rounded-full bg-white/10 flex items-center justify-center text-[10px]">🤖</span><div class="bg-white/10 rounded-xl p-3 text-xs md:text-sm text-gray-300 border border-white/5">${botReply}</div></div>`; msgBox.scrollTop = msgBox.scrollHeight; }, 800); });
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.remove('translate-x-full'));
+        closeMenuBtn.addEventListener('click', () => mobileMenu.classList.add('translate-x-full'));
+
+        function getBotResponse(message) {
+            let msg = message.toLowerCase();
+            if (msg.match(/\b(hi|hello|hey|hy|salam|helo)\b/)) return "Hello! I am the Designix 360 AI Assistant. Are you looking to build a website, a logo, or need marketing services?";
+            else if (msg.match(/\b(yes|yeah|yep|sure|haan|han)\b/)) return "Awesome! You can check our Services page or Contact us directly so our team can start working on your project.";
+            else if (msg.match(/\b(no|nope|nai|nahi)\b/)) return "No worries at all! Let me know if you change your mind or need any other information.";
+            else if (msg.match(/\b(ok|okay|acha|theek|good|great|thanks|thank you|thx)\b/)) return "You're welcome! Let me know if you need anything else.";
+            else if (msg.match(/\b(course|courses|class|classes|learn|teach|academy|student)\b/)) return "We offer live classes for Graphic Design, UI/UX, Web Dev, Marketing, and AI Tools! The fees range from 7,500 to 10,000 PKR per month. We also have Special Student Discounts!";
+            else if (msg.match(/\b(student|discount|offer|scholarship)\b/)) return "Yes! We have a special discount for students. Just show your valid Student ID on WhatsApp and get an exclusive flat discount on any course.";
+            else if (msg.match(/\b(owner|founder|who made|who are you|hifza|ceo|teacher|instructor)\b/)) return "Designix 360 is led by Hifza Majeed, a Senior Graphic Designer with 8+ years of practical agency experience!";
+            else if (msg.match(/\b(price|cost|charges|fee|fees|rate|how much|money)\b/)) return "For Agency Services, please contact us for a quote. For Academy courses, fees range from 7,500 to 10,000 PKR. Ask about our student discounts!";
+            else if (msg.match(/\b(service|services|what do you do|offer|build|make)\b/)) return "We offer 4 main services: Graphic & Logo Design, UI/UX Design, Web Development, and Social Media Marketing.";
+            else if (msg.match(/\b(logo|branding|graphic|design|illustration|3d)\b/)) return "We create stunning logos, full brand identities, and even 3D cartoon illustrations. Check our Portfolio!";
+            else if (msg.match(/\b(web|website|site|development|code|coding)\b/)) return "We build fast, secure, and modern websites, from simple portfolios to complex E-commerce stores.";
+            else if (msg.match(/\b(contact|email|phone|call|reach|number|location|where)\b/)) return "You can email us at info@designix360.com or call/WhatsApp us at 0348 4329715. We are online 24/7 to support you!";
+            else return "That's an interesting question! Since I'm an AI, I suggest checking our 'About Us' or 'Services' page, or sending a quick message through the Contact page so our human experts can assist you perfectly.";
+        }
+        function sendMessage(e) {
+            e.preventDefault(); const input = document.getElementById('chat-input'); const message = input.value.trim(); if(!message) return; const chatBox = document.getElementById('chat-messages');
+            chatBox.innerHTML += `<div class="flex gap-2 max-w-[85%] self-end ms-auto"><div class="bg-flam_pink/20 border border-flam_pink/30 rounded-2xl rounded-tr-sm p-3 text-xs md:text-sm text-white">${message}</div></div>`;
+            input.value = ''; chatBox.scrollTop = chatBox.scrollHeight; const botReply = getBotResponse(message);
+            setTimeout(() => { chatBox.innerHTML += `<div class="flex gap-2 max-w-[85%]"><div class="w-6 h-6 rounded-full bg-gradient-to-tr from-flam_pink to-flam_purple flex-shrink-0 flex items-center justify-center text-[10px]">🤖</div><div class="bg-white/10 border border-white/5 rounded-2xl rounded-tl-sm p-3 text-xs md:text-sm text-gray-300">${botReply}</div></div>`; chatBox.scrollTop = chatBox.scrollHeight; }, 800);
+        }
     </script>
 </body>
 </html>
