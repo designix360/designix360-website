@@ -458,7 +458,7 @@
             <div class="h-[250px] md:h-[300px] p-4 overflow-y-auto flex flex-col gap-4 bg-[#050505]/50" id="chat-messages">
                 <div class="flex gap-2 max-w-[85%]">
                     <div class="w-6 h-6 rounded-full bg-gradient-to-tr from-flam_pink to-flam_purple flex-shrink-0 flex items-center justify-center text-[10px]">🤖</div>
-                    <div class="bg-white/10 border border-white/5 rounded-2xl rounded-tl-sm p-3 text-xs md:text-sm text-gray-300">Hi! Welcome to Designix 360. Ap in 6 services ke bare main kuch bhi puch sakte hain ya online classes ka puch sakte hain!</div>
+                    <div class="bg-white/10 border border-white/5 rounded-2xl rounded-tl-sm p-3 text-xs md:text-sm text-gray-300">Hi! Welcome to Designix 360. You can ask me anything about our 6 core services, or inquire about our academy classes!</div>
                 </div>
             </div>
             <div class="p-3 border-t border-white/10 bg-[#0a0a0a]">
@@ -487,17 +487,18 @@
         
         const mobileMenuBtn = document.getElementById('mobile-menu-btn'); const closeMenuBtn = document.getElementById('close-menu-btn'); const mobileMenu = document.getElementById('mobile-menu'); mobileMenuBtn.addEventListener('click', () => { mobileMenu.classList.remove('translate-x-full'); }); closeMenuBtn.addEventListener('click', () => { mobileMenu.classList.add('translate-x-full'); });
         
+        // 100% ENGLISH BOT RESPONSES
         function getBotResponse(message) { 
             let msg = message.toLowerCase(); 
-            if (msg.match(/\b(hi|hello|hey|salam)\b/)) return "Hello! I am the Designix 360 AI Assistant. We now offer 6 core services including Web & App Dev and AI Automation. How can I help?"; 
-            else if (msg.match(/\b(logo|branding|graphic)\b/)) return "We offer complete graphic and logo design services, including custom brand strategies and 3D illustrations."; 
+            if (msg.match(/\b(hi|hello|hey|greetings)\b/)) return "Hello! I am the Designix 360 AI Assistant. We offer 6 core services including Web & App Dev, and AI Automation. How can I help you today?"; 
+            else if (msg.match(/\b(logo|branding|graphic)\b/)) return "We offer complete graphic and logo design services, including custom brand strategies and 3D illustrations. Would you like a quote?"; 
             else if (msg.match(/\b(web|next.js|node.js|html|css)\b/)) return "Yes! We build high-performance websites using modern stacks like Next.js, Node.js, HTML, and CSS."; 
             else if (msg.match(/\b(app|react native|mobile)\b/)) return "We develop fast, cross-platform mobile apps for iOS and Android using React Native."; 
-            else if (msg.match(/\b(ai|automation|bot)\b/)) return "We provide smart AI chatbots and custom automation workflows to scale your business operations."; 
+            else if (msg.match(/\b(ai|automation|bot)\b/)) return "We provide smart AI chatbots and custom automation workflows to scale your business operations seamlessly."; 
             else if (msg.match(/\b(mechanical|3d cad|engineering)\b/)) return "We offer precision 3D CAD modeling, product engineering, and industrial design services."; 
-            else if (msg.match(/\b(price|cost|how much|student discount)\b/)) return "For student special discount offer is available on academy classes only. For agency services tailored quote will provide."; 
-            else if (msg.match(/\b(course|courses|class|classes|learn)\b/)) return "We offer live classes for Graphic & Logo Design, UI/UX Design, Web Dev, Marketing, and special AI tools training. We offer special student discount offer, inquire now!"; 
-            else return "That's an interesting question! Since I'm an AI, I suggest checking our Services page or directly Contacting us so our experts can assist you."; 
+            else if (msg.match(/\b(price|cost|how much|student discount)\b/)) return "For agency services, we provide tailored quotes. We also offer exclusive flat discounts for students on all Academy courses!"; 
+            else if (msg.match(/\b(course|courses|class|classes|learn|academy)\b/)) return "We offer live classes for Graphic & Logo Design, UI/UX Design, Web Dev, Marketing, and special AI tools training. Inquire now for special student discounts!"; 
+            else return "That's an interesting question! Since I am an AI, I suggest checking our 'Services' page or directly contacting us so our expert human team can assist you perfectly."; 
         }
         
         document.getElementById('chat-form').addEventListener('submit', function(e) { e.preventDefault(); const input = document.getElementById('chat-input'); const message = input.value.trim(); if(!message) return; const msgBox = document.getElementById('chat-messages'); msgBox.innerHTML += `<div class="flex gap-2 items-start self-end max-w-[85%] justify-end ms-auto"><div class="bg-brand rounded-xl p-3 text-xs md:text-sm text-white">${message}</div></div>`; input.value = ''; msgBox.scrollTop = msgBox.scrollHeight; const botReply = getBotResponse(message); setTimeout(() => { msgBox.innerHTML += `<div class="flex gap-2 items-start max-w-[85%]"><span class="flex-shrink-0 w-6 h-6 rounded-full bg-white/10 flex items-center justify-center text-[10px]">🤖</span><div class="bg-white/10 rounded-xl p-3 text-xs md:text-sm text-gray-300 border border-white/5">${botReply}</div></div>`; msgBox.scrollTop = msgBox.scrollHeight; }, 800); });
