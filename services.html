@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-05ZY4BJKG4"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-05ZY4BJKG4');
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Services | Designix 360 | Graphic Design, Web, UI/UX, Marketing Agency</title>
+    <title>Master Ecosystem | Designix 360 - Digital Agency</title>
     
     <link rel="icon" type="image/png" href="favicon.png">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
     <script>
         tailwind.config = { 
             theme: { 
@@ -17,189 +26,323 @@
                     fontFamily: { sans: ['Inter', 'sans-serif'] }, 
                     backgroundImage: { 
                         'flam-gradient': 'linear-gradient(to right, #FF6600, #FF007B, #7928CA)',
-                        'hero-artwork': "url('hero-bg.jpg')" // Referenced background image
+                        'flam-card-glow': 'radial-gradient(circle at 10% 10%, rgba(255,102,0,0.15) 0%, transparent 40%), radial-gradient(circle at 90% 90%, rgba(121,40,202,0.15) 0%, transparent 40%)'
                     },
                     animation: { 
-                        'spin-border': 'spin-border 4s linear infinite', 
                         'marquee': 'marquee 30s linear infinite', 
-                        'float': 'float 6s ease-in-out infinite' 
+                        'float': 'float 4s ease-in-out infinite',
+                        'neon-pulse': 'neonPulse 5s ease-in-out infinite alternate',
+                        'pulse-slow': 'pulse 6s ease-in-out infinite'
                     }, 
                     keyframes: { 
-                        'spin-border': { '0%': { transform: 'rotate(0deg)' }, '100%': { transform: 'rotate(360deg)' } }, 
                         'marquee': { '0%': { transform: 'translateX(0)' }, '100%': { transform: 'translateX(-50%)' } }, 
-                        'float': { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } } 
+                        'float': { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-12px)' } },
+                        'neonPulse': { '0%': { opacity: '0.4', filter: 'blur(60px)' }, '100%': { opacity: '0.9', filter: 'blur(90px)' } }
                     } 
                 } 
             } 
         }
     </script>
     <style>
-        html { scroll-behavior: smooth; background-color: #050505; } 
+        html { scroll-behavior: smooth; background-color: #030303; overflow-x: hidden; } 
+        body { overflow-x: hidden; position: relative; color: #ffffff; }
         ::selection { background-color: #FF007B; color: #fff; } 
-        .glass-nav { background: rgba(5, 5, 5, 0.4); backdrop-filter: blur(24px); border-bottom: 1px solid rgba(255,255,255,0.05); }
-        .glass-btn { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); color: #ffffff; box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.02); transition: all 0.3s ease; }
-        .glass-btn:hover { background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.3); transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4); }
-        .glass-card { background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.06); border-radius: 24px; position: relative; overflow: hidden; transition: all 0.4s ease; }
-        .glass-card:hover { border-color: rgba(255, 102, 0, 0.4); transform: translateY(-8px); box-shadow: 0 20px 40px rgba(255, 102, 0, 0.15); }
-        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); } .reveal.active { opacity: 1; transform: translateY(0); }
-        .delay-1 { transition-delay: 0.2s; } 
         
+        /* GEOMETRIC PATTERN BACKGROUND */
+        body::before {
+            content: ''; position: fixed; inset: 0; background-color: #030303;
+            background-image: url("data:image/svg+xml,%3Csvg width='150' height='100' viewBox='0 0 150 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='0.03' stroke-width='1.5'%3E%3Crect x='15' y='15' width='20' height='20'/%3E%3Ccircle cx='75' cy='25' r='11'/%3E%3Cpath d='M114 14 L136 36 M136 14 L114 36'/%3E%3Ccircle cx='25' cy='75' r='11'/%3E%3Cpath d='M64 64 L86 86 M86 64 L64 86'/%3E%3Crect x='115' y='65' width='20' height='20'/%3E%3C/g%3E%3C/svg%3E");
+            background-size: 150px 100px; z-index: -2; pointer-events: none;
+        }
+
+        /* NEON LIGHT CORE */
+        .neon-core {
+            position: absolute; top: 40%; left: 50%; transform: translate(-50%, -50%);
+            width: 80vw; height: 80vw; max-width: 600px;
+            background: radial-gradient(circle, rgba(255,102,0,0.3) 0%, rgba(255,0,123,0.2) 40%, transparent 70%);
+            z-index: -1; border-radius: 50%;
+        }
+
+        /* GLASS & DROPDOWN STYLES */
+        .glass-nav { background: rgba(5, 5, 5, 0.7); backdrop-filter: blur(24px); border-bottom: 1px solid rgba(255,255,255,0.05); }
+        
+        /* HIGH END GLASS CARD (Layered) */
+        .service-card {
+            background: rgba(255, 255, 255, 0.01);
+            backdrop-filter: blur(40px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 32px;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 32px;
+            height: 100%;
+        }
+        .service-card:hover {
+            transform: translateY(-8px) scale(1.01);
+            background: rgba(255, 255, 255, 0.02);
+            border-color: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 0 100px rgba(255,102,0,0.1);
+        }
+
+        /* Glass Inner Pane for Text (User requested layered glass) */
+        .glass-inner-pane {
+            background: rgba(10, 10, 10, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            padding: 28px;
+            z-index: 10;
+        }
+
+        /* The dynamic image behind the inner glass pane */
+        .service-bg-image {
+            position: absolute; inset: 0; width: 100%; height: 100%;
+            object-fit: cover;
+            opacity: 0.15;
+            transition: transform 0.8s ease;
+            z-index: 1;
+        }
+        .service-card:hover .service-bg-image {
+            transform: scale(1.1);
+            opacity: 0.25;
+        }
+
+        .services-dropdown { visibility: hidden; opacity: 0; transform: translateY(10px); transition: all 0.3s ease; }
+        .group:hover .services-dropdown { visibility: visible; opacity: 1; transform: translateY(0); }
+
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); } .reveal.active { opacity: 1; transform: translateY(0); }
         .text-gradient-orange-pink { background: linear-gradient(to right, #FF6600, #FF007B); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .text-gradient-pink-purple { background: linear-gradient(to right, #FF007B, #7928CA); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        
-        .smoke-orb { position: absolute; border-radius: 50%; mix-blend-mode: screen; pointer-events: none; filter: blur(120px); opacity: 0.3; }
-        .smoke-1 { background: radial-gradient(circle, #FF6600 0%, transparent 70%); width: 70vw; height: 70vw; top: -10vw; left: -20vw; }
-        .smoke-2 { background: radial-gradient(circle, #7928CA 0%, transparent 70%); width: 60vw; height: 60vw; top: 10vw; right: -20vw; }
 
-        /* Exact Geometric Pattern (Circle, Cross, Square) with Glow (from image 4) */
-        .xoxo-pattern { position: relative; background-color: #080808; }
-        .xoxo-pattern::before {
-            content: ''; position: absolute; inset: 0;
-            background-image: 
-                radial-gradient(circle at 50% 50%, rgba(255, 0, 123, 0.04) 0%, transparent 60%),
-                url("data:image/svg+xml,%3Csvg width='120' height='40' viewBox='0 0 120 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23ffffff' stroke-opacity='0.03' stroke-width='1.2'%3E%3Ccircle cx='20' cy='20' r='5'/%3E%3Cpath d='M55 15l10 10m0-10L55 25'/%3E%3Crect x='95' y='15' width='10' height='10'/%3E%3C/g%3E%3C/svg%3E");
-            background-size: 100% 100%, 120px 40px; z-index: 0; pointer-events: none;
-        }
-        .xoxo-pattern > div, .xoxo-pattern > header, .xoxo-pattern > section, .xoxo-pattern > nav, .xoxo-pattern > footer { position: relative; z-index: 10; }
+        #chat-messages::-webkit-scrollbar { width: 4px; } #chat-messages::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 10px; }
     </style>
 </head>
-<body class="bg-dark text-white font-sans overflow-x-hidden relative">
+<body class="font-sans">
 
-    <nav class="fixed top-0 w-full z-50 py-4 px-6 glass-nav">
+    <nav class="fixed top-0 w-full z-50 py-3 px-5 md:px-12 glass-nav">
         <div class="max-w-7xl mx-auto flex justify-between items-center relative z-20">
             <a href="index.html" class="flex items-center">
                 <img src="2.png" alt="Designix 360 Logo" class="h-8 md:h-10 w-auto object-contain">
             </a>
-            <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-300 items-center">
+            
+            <div class="hidden lg:flex space-x-8 text-sm font-medium text-gray-300 items-center">
                 <a href="index.html" class="hover:text-white transition">Home</a>
                 <a href="about.html" class="hover:text-white transition">About Us</a>
-                <a href="services.html" class="text-white drop-shadow-md border-b border-white pb-1">Services</a>
+                
+                <div class="relative group h-full py-4">
+                    <a href="services.html" class="flex items-center gap-1 text-white border-b border-brand pb-1 cursor-pointer">Services <span class="text-[10px] opacity-60">▼</span></a>
+                    <div class="services-dropdown absolute left-0 top-full w-64 bg-[#0a0a0a]/95 backdrop-blur-2xl border border-white/10 rounded-2xl shadow-2xl p-3 grid grid-cols-1 gap-1">
+                        <a href="#graphic-design" class="px-4 py-2 hover:bg-white/5 rounded-xl transition text-sm flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-brand"></span> Graphic Design</a>
+                        <a href="#ui-ux" class="px-4 py-2 hover:bg-white/5 rounded-xl transition text-sm flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-flam_pink"></span> UI/UX Design</a>
+                        <a href="#web-dev" class="px-4 py-2 hover:bg-white/5 rounded-xl transition text-sm flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-flam_purple"></span> Web Development</a>
+                        <a href="#app-dev" class="px-4 py-2 hover:bg-white/5 rounded-xl transition text-sm flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-brand"></span> App Development</a>
+                        <a href="#ai-automation" class="px-4 py-2 hover:bg-white/5 rounded-xl transition text-sm flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-flam_pink"></span> AI Automation</a>
+                        <a href="#mechanical-design" class="px-4 py-2 hover:bg-white/5 rounded-xl transition text-sm flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-flam_purple"></span> Mechanical Design</a>
+                    </div>
+                </div>
+
                 <a href="portfolio.html" class="hover:text-white transition">Portfolio</a>
+                <a href="courses.html" class="hover:text-white transition">Academy</a>
                 <a href="contact.html" class="hover:text-white transition">Contact</a>
             </div>
+            
             <div class="hidden md:flex items-center">
-                <a href="contact.html" class="glass-btn px-6 py-2.5 rounded-full font-bold text-sm text-white border-white/20 hover:bg-white hover:text-dark">Get Quote</a>
+                <a href="contact.html" class="px-6 py-2 rounded-full font-bold text-sm text-white border border-white/20 hover:bg-white hover:text-dark transition-all">Get Quote</a>
             </div>
-            <button class="md:hidden text-white"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg></button>
+
+            <button id="mobile-menu-btn" class="lg:hidden text-white"><svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg></button>
         </div>
     </nav>
 
-    <header class="relative bg-dark pt-32 pb-16 overflow-hidden">
-        
-        <div class="absolute inset-0 z-0 bg-hero-artwork bg-cover bg-center opacity-20"></div>
+    <div id="mobile-menu" class="fixed inset-0 bg-[#050505]/98 backdrop-blur-3xl z-[60] transform translate-x-full transition-transform duration-300 md:hidden flex flex-col px-8 pt-28 gap-6">
+        <button id="close-menu-btn" class="absolute top-6 right-6 text-white/70 hover:text-white p-2">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+        <a href="index.html" class="text-3xl font-black text-gray-500 hover:text-white pb-4 tracking-tighter">Home.</a>
+        <a href="about.html" class="text-3xl font-black text-gray-500 hover:text-white pb-4 tracking-tighter">About Us.</a>
+        <a href="services.html" class="text-3xl font-black text-white border-b border-white/10 pb-4 tracking-tighter">Services.</a>
+        <a href="portfolio.html" class="text-3xl font-black text-gray-500 hover:text-white pb-4 tracking-tighter">Portfolio.</a>
+        <a href="courses.html" class="text-3xl font-black text-gray-500 hover:text-white pb-4 tracking-tighter">Academy.</a>
+        <a href="contact.html" class="text-3xl font-black text-flam_pink mt-4 tracking-tighter">Get Quote.</a>
+    </div>
 
-        <div class="max-w-7xl mx-auto px-6 text-center reveal">
-            <h4 class="relative z-10 text-flam_pink font-bold uppercase tracking-widest text-xs md:text-sm mb-2 drop-shadow-md">What We Do</h4>
-            <h1 class="relative z-10 text-4xl md:text-6xl font-black text-white leading-tight uppercase tracking-tighter drop-shadow-xl">
-                OUR <span class="text-gradient-orange-pink drop-shadow-lg">SERVICES</span>.
-            </h1>
-            <p class="relative z-10 text-gray-400 mt-6 max-w-2xl mx-auto text-sm md:text-base">We combine breathtaking artistry with hardcore engineering to build digital empires that dominate the market.</p>
+    <header class="relative pt-32 pb-16 md:pt-40 md:pb-20 overflow-hidden border-b border-white/5">
+        <div class="absolute inset-0 z-0 flex items-center justify-center opacity-10 pointer-events-none">
+            <svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" class="w-full h-full max-w-[600px] animate-pulse-slow">
+                <circle cx="400" cy="400" r="380" stroke="white" stroke-width="1" fill="none" stroke-dasharray="10 15" />
+                <ellipse cx="400" cy="400" rx="380" ry="120" stroke="white" stroke-width="1" fill="none" transform="rotate(45 400 400)" />
+                <ellipse cx="400" cy="400" rx="380" ry="120" stroke="white" stroke-width="1" fill="none" transform="rotate(-45 400 400)" />
+            </svg>
+        </div>
+        <div class="neon-core animate-neon-pulse"></div>
+        <div class="max-w-7xl mx-auto px-5 w-full relative z-20 flex flex-col items-center text-center">
+            <div class="reveal flex flex-col items-center w-full">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md mb-6 shadow-xl">
+                    <span class="w-2 h-2 rounded-full bg-brand animate-pulse"></span>
+                    <span class="text-[10px] md:text-xs font-bold text-white tracking-widest uppercase">The 360° Ecosystem</span>
+                </div>
+                <h1 class="text-[3.5rem] sm:text-[4.5rem] md:text-[5.5rem] leading-[1.05] font-black tracking-tighter uppercase drop-shadow-2xl mb-4">
+                    <span class="block text-white">Full-Spectrum</span>
+                    <span class="block text-gradient-orange-pink">Digital Capabilities.</span>
+                </h1>
+                <p class="text-gray-400 text-sm md:text-lg leading-relaxed max-w-2xl mt-4 mb-8">
+                    We engineering bespoke digital kingdoms for high-growth brands. From market-disrupting identities to automated workflows, Designix 360 covers everything.
+                </p>
+                <div class="flex flex-wrap gap-4 items-center justify-center">
+                    <a href="#master-ecosystem" class="glass-btn px-6 py-3 rounded-full font-bold text-sm text-white hover:border-brand hover:text-brand transition-colors">Explorer 6 Capabilities</a>
+                    <a href="portfolio.html" class="px-6 py-3 rounded-full font-bold text-sm text-gray-500 hover:text-white transition-colors">See Our Work</a>
+                </div>
+            </div>
         </div>
     </header>
 
-    <section class="py-16 px-6 bg-[#0a0a0a]">
-        <div class="max-w-7xl mx-auto space-y-12">
+    <section id="master-ecosystem" class="py-20 md:py-32 px-5 relative z-10">
+        <div class="max-w-7xl mx-auto">
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center reveal">
-                <div class="space-y-4">
-                    <h2 class="text-3xl font-black text-white uppercase tracking-tighter">Graphic <span class="text-flam_pink">Design</span></h2>
-                    <p class="text-gray-300 text-sm md:text-base leading-relaxed">From striking logos and complete branding kits to corporate stationery and 3D illustrations, we sculpt your brand's unique visual identity.</p>
-                    <a href="graphic-design.html" class="inline-block text-flam_pink font-bold text-sm uppercase tracking-wider hover:text-brand">Explore Design &rarr;</a>
-                </div>
-                <div class="p-[1.5px] rounded-3xl group overflow-hidden bg-white/10 shadow-2xl">
-                    <div class="rounded-[23px] bg-[#0a0a0a] p-10 flex flex-col h-full border border-white/5">
-                        <span class="text-gray-500 font-bold tracking-widest text-[10px] uppercase mb-1">Graphic Design</span>
-                        <h4 class="text-6xl font-black text-white tracking-tighter leading-none mb-1"> sculpt</h4>
-                        <span class="text-[10px] text-flam_pink font-bold tracking-widest uppercase mb-6 flex items-center gap-2">your brand's unique visual identity</span>
-                        <p class="text-gray-400 text-sm">We blend art and strategy to create captivating visuals that resonate with your audience and make a lasting impression.</p>
-                    </div>
-                </div>
+            <div class="text-center mb-20 reveal">
+                <h4 class="text-brand font-bold uppercase tracking-widest text-xs md:text-sm mb-3 drop-shadow-md">Multidisciplinary Engineering</h4>
+                <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-8 text-white drop-shadow-xl uppercase">The Ecosystem Components.</h2>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center reveal delay-1">
-                <div class="p-[1.5px] rounded-3xl group overflow-hidden bg-white/10 shadow-2xl order-last md:order-first">
-                    <div class="rounded-[23px] bg-[#0a0a0a] p-10 flex flex-col h-full border border-white/5">
-                        <span class="text-gray-500 font-bold tracking-widest text-[10px] uppercase mb-1">Web Development</span>
-                        <h4 class="text-6xl font-black text-white tracking-tighter leading-none mb-1"> engineer</h4>
-                        <span class="text-[10px] text-flam_purple font-bold tracking-widest uppercase mb-6 flex items-center gap-2">lightning-fast, modern websites</span>
-                        <p class="text-gray-400 text-sm">We code clean, scalable, and powerful web experiences optimized for performance, security, and absolute digital dominance.</p>
-                    </div>
-                </div>
-                <div class="space-y-4">
-                    <h2 class="text-3xl font-black text-white uppercase tracking-tighter">Web <span class="text-flam_purple">Development</span></h2>
-                    <p class="text-gray-300 text-sm md:text-base leading-relaxed">We don't just build websites; we architect them for performance. Fast, secure, and modern digital engines engineered perfectly for your business needs.</p>
-                    <a href="web-dev.html" class="inline-block text-flam_purple font-bold text-sm uppercase tracking-wider hover:text-brand">Explore Coding &rarr;</a>
-                </div>
-            </div>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center reveal">
-                <div class="space-y-4 lg:col-span-1">
-                    <h2 class="text-3xl font-black text-white uppercase tracking-tighter">UI/UX <span class="text-brand">Design</span></h2>
-                    <p class="text-gray-300 text-sm md:text-base leading-relaxed">Mapping intuitive journeys that are as beautiful as they are functional. Sleek interfaces meticulously designed to convert.</p>
-                    <a href="ui-ux.html" class="inline-block text-brand font-bold text-sm uppercase tracking-wider hover:text-flam_pink">Explore Interface &rarr;</a>
-                </div>
-                <div class="lg:col-span-1 p-[1.5px] rounded-3xl group overflow-hidden bg-white/10 shadow-2xl flex items-center h-full">
-                    <div class="rounded-[23px] bg-[#0a0a0a] p-10 flex flex-col h-full border border-white/5 w-full">
-                        <span class="text-gray-500 font-bold tracking-widest text-[10px] uppercase mb-1">UI/UX Design</span>
-                        <h4 class="text-6xl font-black text-white tracking-tighter leading-none mb-1"> meticulous</h4>
-                        <span class="text-[10px] text-brand font-bold tracking-widest uppercase mb-6 flex items-center gap-2">user experience designed to convert</span>
-                        <p class="text-gray-400 text-sm">We craft interfaces that look stunning and feel natural. Intuitive wireframes and elegant prototypes engineered perfectly for user retention and business growth.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center reveal delay-1 bg-surface_light p-10 rounded-[30px] border border-white/5">
-                <div class="lg:col-span-2 space-y-4">
-                    <h2 class="text-3xl font-black text-white uppercase tracking-tighter">Social Media <span class="text-gradient-orange-pink">Marketing</span></h2>
-                    <p class="text-gray-300 text-sm md:text-base leading-relaxed">Scalable growth engineered through aggressive campaigns. We multiply your audience and generate high-quality leads.</p>
-                    <a href="marketing.html" class="inline-block text-gradient-orange-pink font-bold text-sm uppercase tracking-wider hover:text-flam_pink">Explore Marketing &rarr;</a>
-                </div>
-                <div class="lg:col-span-1 glass-card p-10 flex items-center justify-center relative">
-                    <span class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[150%] bg-gradient-to-tr from-brand/20 to-flam_pink/20 blur-[50px] rounded-full pointer-events-none"></span>
-                    <h4 class="text-8xl font-black text-gradient-orange-pink drop-shadow-2xl"> DOMINATE</h4>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <section class="py-20 px-6 bg-transparent text-center reveal">
-        <h4 class="text-brand font-bold uppercase tracking-widest text-xs md:text-sm mb-3">Our Network</h4>
-        <h2 class="text-3xl md:text-5xl font-black text-white leading-tight uppercase tracking-tighter drop-shadow-xl">TRUSTED <span class="text-gradient-pink-purple">NETWORK</span>.</h2>
-        <div class="mt-16 overflow-hidden relative group py-8 px-4 glass-card border-none bg-dark/30">
-            <div class="flex animate-marquee space-x-24 items-center w-max">
-                <img src="1.png" alt="Client 1" class="h-24 w-auto max-w-[250px] object-contain opacity-50 hover:opacity-100 transition flex-shrink-0">
-                <img src="4.png" alt="Client 4" class="h-24 w-auto max-w-[250px] object-contain opacity-50 hover:opacity-100 transition flex-shrink-0">
-                <img src="5.png" alt="Client 5" class="h-24 w-auto max-w-[250px] object-contain opacity-50 hover:opacity-100 transition flex-shrink-0">
-                <img src="6.png" alt="Client 6" class="h-24 w-auto max-w-[250px] object-contain opacity-50 hover:opacity-100 transition flex-shrink-0">
-                <img src="7.png" alt="Client 7" class="h-24 w-auto max-w-[250px] object-contain opacity-50 hover:opacity-100 transition flex-shrink-0">
-                <img src="8.png" alt="Client 8" class="h-24 w-auto max-w-[250px] object-contain opacity-50 hover:opacity-100 transition flex-shrink-0">
-                <img src="9.png" alt="Client 9" class="h-24 w-auto max-w-[250px] object-contain opacity-50 hover:opacity-100 transition flex-shrink-0">
-                <img src="10.png" alt="Client 10" class="h-24 w-auto max-w-[250px] object-contain opacity-50 hover:opacity-100 transition flex-shrink-0">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10 text-left">
                 
-                <img src="1.png" alt="Client 1" class="h-24 w-auto max-w-[250px] object-contain opacity-50 hover:opacity-100 transition flex-shrink-0">
-                <img src="4.png" alt="Client 4" class="h-24 w-auto max-w-[250px] object-contain opacity-50 hover:opacity-100 transition flex-shrink-0">
-                <img src="5.png" alt="Client 5" class="h-24 w-auto max-w-[250px] object-contain opacity-50 hover:opacity-100 transition flex-shrink-0">
+                <div id="graphic-design" class="service-card group reveal h-[450px] md:h-[500px]">
+                    <img src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Graphic Design" class="service-bg-image">
+                    
+                    <div class="flex items-center justify-center gap-3 self-center mb-auto pt-6 text-brand">
+                        <div class="w-16 h-16 rounded-2xl bg-brand/10 border border-brand/20 flex items-center justify-center text-brand drop-shadow-[0_0_15px_rgba(255,102,0,0.6)]">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.813-3.814a1.5 1.5 0 00-2.12-2.12l-3.814 3.813a15.995 15.995 0 00-4.648 4.764m3.42 3.42a6.823 6.823 0 01-3.42-3.42" /></svg>
+                        </div>
+                    </div>
+
+                    <div class="glass-inner-pane space-y-4">
+                        <h3 class="text-3xl font-black text-white tracking-tighter uppercase leading-none">Graphic Design</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed pb-3">The visual soul of your brand. We craft modern minimalism, advanced 3D renders, and iconic logo systems built flawlessly for premium corporations.</p>
+                        <a href="contact.html" class="block w-full py-3.5 text-center rounded-xl bg-transparent border border-brand/40 text-brand text-xs font-bold tracking-widest uppercase hover:bg-brand hover:text-white transition-all group-hover:bg-brand group-hover:text-white">Request Tailored Quote</a>
+                    </div>
+                </div>
+
+                <div id="ui-ux" class="service-card group reveal delay-1 h-[450px] md:h-[500px]">
+                    <img src="https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="UI/UX Design" class="service-bg-image">
+                    
+                    <div class="flex items-center justify-center gap-3 self-center mb-auto pt-6 text-flam_pink">
+                        <div class="w-16 h-16 rounded-2xl bg-flam_pink/10 border border-flam_pink/20 flex items-center justify-center text-flam_pink drop-shadow-[0_0_15px_rgba(255,0,123,0.6)]">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" /></svg>
+                        </div>
+                    </div>
+
+                    <div class="glass-inner-pane space-y-4">
+                        <h3 class="text-3xl font-black text-white tracking-tighter uppercase leading-none">UI/UX Design</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed pb-3">Intuitive, scalable, and beautifully designed mobile application interfaces and SaaS dashboards engineered for seamless user mastery.</p>
+                        <a href="contact.html" class="block w-full py-3.5 text-center rounded-xl bg-transparent border border-flam_pink/40 text-flam_pink text-xs font-bold tracking-widest uppercase hover:bg-flam_pink hover:text-white transition-all group-hover:bg-flam_pink group-hover:text-white">Request Tailored Quote</a>
+                    </div>
+                </div>
+
+                <div id="web-dev" class="service-card group reveal delay-2 h-[450px] md:h-[500px]">
+                    <img src="https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Web Development" class="service-bg-image">
+                    
+                    <div class="flex items-center justify-center gap-3 self-center mb-auto pt-6 text-flam_purple">
+                        <div class="w-16 h-16 rounded-2xl bg-flam_purple/10 border border-flam_purple/20 flex items-center justify-center text-flam_purple drop-shadow-[0_0_15px_rgba(121,40,202,0.6)]">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" /></svg>
+                        </div>
+                    </div>
+
+                    <div class="glass-inner-pane space-y-4">
+                        <h3 class="text-3xl font-black text-white tracking-tighter uppercase leading-none">Web Development</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed pb-3">High-performance digital engineering flawlessly built with modern stacks: <span class="text-white font-medium">Next.js, Node.js, HTML, CSS</span>. Fast, secure, and infinitely scalable.</p>
+                        <a href="contact.html" class="block w-full py-3.5 text-center rounded-xl bg-transparent border border-flam_purple/40 text-flam_purple text-xs font-bold tracking-widest uppercase hover:bg-flam_purple hover:text-white transition-all group-hover:bg-flam_purple group-hover:text-white">Request Tailored Quote</a>
+                    </div>
+                </div>
+
+                <div id="app-dev" class="service-card group reveal h-[450px] md:h-[500px]">
+                    <img src="https://images.pexels.com/photos/1092671/pexels-photo-1092671.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="App Development" class="service-bg-image">
+                    
+                    <div class="flex items-center justify-center gap-3 self-center mb-auto pt-6 text-brand">
+                        <div class="w-16 h-16 rounded-2xl bg-brand/10 border border-brand/20 flex items-center justify-center text-brand drop-shadow-[0_0_15px_rgba(255,102,0,0.6)]">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" /></svg>
+                        </div>
+                    </div>
+
+                    <div class="glass-inner-pane space-y-4">
+                        <h3 class="text-3xl font-black text-white tracking-tighter uppercase leading-none">App Development</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed pb-3">Native mobile applications engineered flawlessly for both iOS and Android platforms natively with <span class="text-white font-medium">React Native</span>. High speed, seamless fluidity.</p>
+                        <a href="contact.html" class="block w-full py-3.5 text-center rounded-xl bg-transparent border border-brand/40 text-brand text-xs font-bold tracking-widest uppercase hover:bg-brand hover:text-white transition-all group-hover:bg-brand group-hover:text-white">Request Tailored Quote</a>
+                    </div>
+                </div>
+
+                <div id="ai-automation" class="service-card group reveal delay-1 h-[450px] md:h-[500px]">
+                    <img src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="AI & Automation" class="service-bg-image">
+                    
+                    <div class="flex items-center justify-center gap-3 self-center mb-auto pt-6 text-flam_pink">
+                        <div class="w-16 h-16 rounded-2xl bg-flam_pink/10 border border-flam_pink/20 flex items-center justify-center text-flam_pink drop-shadow-[0_0_15px_rgba(255,0,123,0.6)]">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 002.25-2.25V6.75a2.25 2.25 0 00-2.25-2.25H7.5A2.25 2.25 0 005.25 6.75v10.5a2.25 2.25 0 002.25 2.25zm.75-12h9v9h-9v-9z" /></svg>
+                        </div>
+                    </div>
+
+                    <div class="glass-inner-pane space-y-4">
+                        <h3 class="text-3xl font-black text-white tracking-tighter uppercase leading-none">AI Automation</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed pb-3">Smart chatbots, custom GPT fine-tuning, and advanced automation workflows flawlessly built to scale your business operations without extra human resources.</p>
+                        <a href="contact.html" class="block w-full py-3.5 text-center rounded-xl bg-transparent border border-flam_pink/40 text-flam_pink text-xs font-bold tracking-widest uppercase hover:bg-flam_pink hover:text-white transition-all group-hover:bg-flam_pink group-hover:text-white">Request Tailored Quote</a>
+                    </div>
+                </div>
+
+                <div id="mechanical-design" class="service-card group reveal delay-2 h-[450px] md:h-[500px]">
+                    <img src="https://images.pexels.com/photos/3825527/pexels-photo-3825527.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Mechanical Design" class="service-bg-image">
+                    
+                    <div class="flex items-center justify-center gap-3 self-center mb-auto pt-6 text-flam_purple">
+                        <div class="w-16 h-16 rounded-2xl bg-flam_purple/10 border border-flam_purple/20 flex items-center justify-center text-flam_purple drop-shadow-[0_0_15px_rgba(121,40,202,0.6)]">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M10.343 3.94c.09-.542.56-.94 1.11-.94h1.093c.55 0 1.02.398 1.11.94l.149.894c.07.424.384.764.78.93.398.164.855.142 1.205-.108l.737-.527a1.125 1.125 0 011.45.12l.773.774c.39.389.44 1.002.12 1.45l-.527.737c-.25.35-.272.806-.107 1.204.165.397.505.71.93.78l.893.15c.543.09.94.56.94 1.109v1.094c0 .55-.397 1.02-.94 1.11l-.893.149c-.425.07-.765.383-.93.78-.165.398-.143.854.107 1.204l.527.738c.32.447.269 1.06-.12 1.45l-.774.773a1.125 1.125 0 01-1.449.12l-.738-.527c-.35-.25-.806-.272-1.203-.107-.397.165-.71.505-.781.929l-.149.894c-.09.542-.56.94-1.11.94h-1.094c-.55 0-1.019-.398-1.11-.94l-.148-.894c-.071-.424-.384-.764-.781-.93-.398-.164-.854-.142-1.204.108l-.738.527c-.447.32-1.06.269-1.45-.12l-.773-.774a1.125 1.125 0 01-.12-1.45l.527-.737c.25-.35.273-.806.108-1.204-.165-.397-.505-.71-.93-.78l-.894-.15c-.542-.09-.94-.56-.94-1.109v-1.094c0-.55.398-1.02.94-1.11l.894-.149c.424-.07.765-.383.93-.78.165-.398.143-.854-.107-1.204l-.527-.738a1.125 1.125 0 01.12-1.45l.773-.773a1.125 1.125 0 011.45-.12l.737.527c.35.25.807.272 1.204.107.397-.165.71-.505.78-.929l.15-.894z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                        </div>
+                    </div>
+
+                    <div class="glass-inner-pane space-y-4">
+                        <h3 class="text-3xl font-black text-white tracking-tighter uppercase leading-none">Mechanical Design</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed pb-3">Bridging digital creativity and physical reality. We engineer advanced 3D CAD modeling, industrial prototypes, and technical documentation built for flawless execution.</p>
+                        <a href="contact.html" class="block w-full py-3.5 text-center rounded-xl bg-transparent border border-flam_purple/40 text-flam_purple text-xs font-bold tracking-widest uppercase hover:bg-flam_purple hover:text-white transition-all group-hover:bg-flam_purple group-hover:text-white">Request Tailored Quote</a>
+                    </div>
+                </div>
+                
             </div>
         </div>
     </section>
 
-    <footer class="bg-dark xoxo-pattern py-8 px-6 border-t border-white/10 relative z-10">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 relative z-10">
-            <div class="flex flex-col md:flex-row items-center gap-2 md:gap-4">
-                <div class="flex items-center gap-2">
-                    <img src="2.png" alt="Designix 360 Logo" class="h-6 md:h-6 w-auto object-contain">
-                    <span class="text-white font-black text-lg tracking-wide"></span>
+    <section class="py-20 md:py-32 px-5 relative z-10 border-t border-white/5 bg-black/50">
+        <div class="max-w-4xl mx-auto text-center reveal">
+            <h2 class="text-4xl md:text-6xl font-black tracking-tight text-white mb-6 uppercase">Ready to dominate?</h2>
+            <p class="text-gray-400 text-lg mb-10 max-w-2xl mx-auto">We don't just build websites or logos; we engineer master ecosystems that ensure dominance in the digital realm. Choose your capability and let's engineer an empire together.</p>
+            <a href="contact.html" class="relative group p-[1.5px] rounded-full overflow-hidden transition-all duration-300 inline-block bg-gradient-to-r from-brand via-flam_pink to-flam_purple shadow-[0_0_30px_rgba(255,0,123,0.3)] hover:scale-105">
+                <span class="block px-10 py-4 bg-[#050505] rounded-full text-white text-sm font-bold tracking-[0.15em] uppercase group-hover:bg-transparent transition-all duration-300 relative z-10">
+                     इंजीनियरिंग साम्राज्य (Let's Begin)
+                </span>
+            </a>
+        </div>
+    </section>
+
+    <footer class="bg-[#050505] py-10 px-5 md:px-12 border-t border-white/10 relative z-10">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex flex-col md:flex-row items-center gap-4">
+                <div class="flex items-center">
+                    <img src="2.png" alt="Logo" class="h-8">
                 </div>
-                <p class="text-[#64748b] text-sm font-medium mt-2 md:mt-0">&copy; 2026 Designix 360. All Rights Reserved.</p>
+                <p class="text-gray-500 text-xs md:text-sm font-medium">&copy; 2026 Designix 360. All Rights Reserved.</p>
             </div>
-            <div class="flex flex-col md:flex-row items-center gap-4 md:gap-6">
+            <div class="flex items-center gap-6">
                 <div class="flex items-center gap-4">
-                    <a href="https://linkedin.com" target="_blank" class="text-gray-400 hover:text-white transition"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
-                    <a href="https://instagram.com" target="_blank" class="text-gray-400 hover:text-white transition"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd" /></svg></a>
-                    <a href="https://facebook.com" target="_blank" class="text-gray-400 hover:text-white transition"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg></a>
+                    <a href="https://www.linkedin.com/company/112812148/" target="_blank" class="text-gray-400 hover:text-white transition-all duration-300">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <a href="https://www.instagram.com/designix360/" target="_blank" class="text-gray-400 hover:text-white transition-all duration-300">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd" /></svg>
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=61574384135369" target="_blank" class="text-gray-400 hover:text-white transition-all duration-300">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg>
+                    </a>
                 </div>
-                <div class="flex gap-4 text-[#64748b] text-sm font-medium">
+                <div class="flex gap-4 text-gray-500 text-xs md:text-sm font-medium ml-4 border-l border-white/10 pl-4">
                     <a href="#" class="hover:text-white transition">Privacy Policy</a>
                     <a href="#" class="hover:text-white transition">Terms of Use</a>
                 </div>
@@ -207,37 +350,61 @@
         </div>
     </footer>
 
-    <div id="chatbot-container" class="fixed bottom-6 right-6 z-[100] flex flex-col items-end">
-        <div id="chat-window" class="hidden w-[350px] bg-[#0a0a0a] border border-white/10 rounded-3xl shadow-2xl mb-4 overflow-hidden transition-all duration-300">
-            <div class="bg-surface p-4 flex justify-between items-center border-b border-white/10">
-                <div class="flex items-center gap-2">
-                    <span class="text-brand text-lg">🤖</span>
-                    <h3 class="text-white font-bold text-sm">Designix AI</h3>
+    <div id="chatbot-container" class="fixed bottom-6 right-4 md:right-6 z-[9999] flex flex-col items-end">
+        <div id="chat-window" class="hidden w-[calc(100vw-2rem)] sm:w-[320px] bg-[#0a0a0a]/95 backdrop-blur-2xl border border-white/10 rounded-3xl shadow-[0_10px_40px_rgba(255,0,123,0.3)] mb-4 overflow-hidden transition-all duration-300">
+            <div class="bg-gradient-to-r from-brand via-flam_pink to-flam_purple p-4 flex justify-between items-center">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center"><span class="text-white text-xl">🤖</span></div>
+                    <div class="text-left"><h3 class="text-white font-bold text-sm leading-none">Designix AI</h3><p class="text-white/70 text-[10px] mt-1">Online</p></div>
                 </div>
-                <button onclick="toggleChat()" class="text-gray-400 hover:text-white transition">&times;</button>
+                <button onclick="toggleChat()" class="text-white/70 hover:text-white transition p-1"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
             </div>
-            <div class="h-[300px] p-4 overflow-y-auto space-y-4 bg-dark" id="chat-messages">
-                <div class="flex gap-2 items-start max-w-[85%]">
-                    <span class="flex-shrink-0 w-6 h-6 rounded-full bg-surface flex items-center justify-center text-[10px]">🤖</span>
-                    <div class="bg-surface rounded-xl p-3 text-sm text-gray-300">Hi! How can I help you dominate your digital niche today? Ask me anything about our services.</div>
+            <div class="h-[250px] md:h-[300px] p-4 overflow-y-auto flex flex-col gap-4 bg-[#050505]/50" id="chat-messages">
+                <div class="flex gap-2 max-w-[85%]">
+                    <div class="w-6 h-6 rounded-full bg-gradient-to-tr from-flam_pink to-flam_purple flex-shrink-0 flex items-center justify-center text-[10px]">🤖</div>
+                    <div class="bg-white/10 border border-white/5 rounded-2xl rounded-tl-sm p-3 text-xs md:text-sm text-gray-300">Hi! Welcome to Designix 360. You can ask me anything about our 6 core services, or inquire about our academy classes!</div>
                 </div>
             </div>
-            <div class="p-4 border-t border-white/10 bg-surface">
-                <form id="chat-form" class="flex gap-2">
-                    <input type="text" id="chat-input" class="w-full bg-dark border border-white/10 rounded-xl px-4 py-2 text-sm text-white focus:outline-none focus:border-flam_pink" placeholder="Ask anything...">
-                    <button type="submit" class="bg-flam-gradient text-white font-bold text-sm px-4 py-2 rounded-xl">Send</button>
+            <div class="p-3 border-t border-white/10 bg-[#0a0a0a]">
+                <form id="chat-form" class="flex gap-2" onsubmit="sendMessage(event)">
+                    <input type="text" id="chat-input" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-xs md:text-sm text-white focus:outline-none focus:border-flam_pink transition" placeholder="Ask anything..." autocomplete="off">
+                    <button type="submit" class="w-10 h-10 rounded-xl bg-flam_pink hover:bg-brand text-white flex items-center justify-center transition shrink-0 shadow-lg shadow-flam_pink/20">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+                    </button>
                 </form>
             </div>
         </div>
-        <button onclick="toggleChat()" class="w-14 h-14 rounded-full bg-flam-gradient text-white flex items-center justify-center shadow-2xl hover:scale-110 transition duration-300">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path></svg>
-        </button>
+        
+        <div class="animate-float">
+            <button onclick="toggleChat()" class="w-14 h-14 rounded-full bg-gradient-to-r from-brand via-flam_pink to-flam_purple text-white shadow-[0_10px_25px_rgba(255,0,123,0.4)] hover:scale-110 hover:shadow-[0_15px_35px_rgba(255,0,123,0.6)] transition duration-300 flex items-center justify-center z-50">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                    <path fill-rule="evenodd" d="M4.804 21.644A6.707 6.707 0 006 21.75a6.721 6.721 0 003.583-1.029c.774.182 1.584.279 2.417.279 5.322 0 9.75-3.97 9.75-9 0-5.03-4.428-9-9.75-9s-9.75 3.97-9.75 9c0 2.409 1.025 4.587 2.674 6.192.232.226.277.428.254.543a3.73 3.73 0 01-.814 1.686.75.75 0 00.44 1.223zM8.25 10.875a1.125 1.125 0 100 2.25 1.125 1.125 0 000-2.25zM10.875 12a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0zm4.875-1.125a1.125 1.125 0 100 2.25 1.125 1.125 0 000-2.25z" clip-rule="evenodd" />
+                </svg>
+            </button>
+        </div>
     </div>
 
     <script>
         function reveal() { document.querySelectorAll(".reveal").forEach(el => { if(el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add("active"); }); } window.addEventListener("scroll", reveal); setTimeout(reveal, 100); 
+        
         function toggleChat() { document.getElementById('chat-window').classList.toggle('hidden'); }
-        document.getElementById('chat-form').addEventListener('submit', function(e) { e.preventDefault(); const input = document.getElementById('chat-input'); if(input.value) { const msgBox = document.getElementById('chat-messages'); msgBox.innerHTML += `<div class="flex gap-2 items-start self-end max-w-[85%] justify-end"><div class="bg-brand rounded-xl p-3 text-sm text-white">${input.value}</div></div>`; input.value = ''; msgBox.scrollTop = msgBox.scrollHeight; setTimeout(() => { msgBox.innerHTML += `<div class="flex gap-2 items-start max-w-[85%]"><span class="flex-shrink-0 w-6 h-6 rounded-full bg-surface flex items-center justify-center text-[10px]">🤖</span><div class="bg-surface rounded-xl p-3 text-sm text-gray-300">Dominating a market requires precision. Can you tell me more about your specific goals?</div></div>`; msgBox.scrollTop = msgBox.scrollHeight; }, 1000); } });
+        
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn'); const closeMenuBtn = document.getElementById('close-menu-btn'); const mobileMenu = document.getElementById('mobile-menu'); mobileMenuBtn.addEventListener('click', () => { mobileMenu.classList.remove('translate-x-full'); }); closeMenuBtn.addEventListener('click', () => { mobileMenu.classList.add('translate-x-full'); });
+        
+        function getBotResponse(message) { 
+            let msg = message.toLowerCase(); 
+            if (msg.match(/\b(hi|hello|hey|greetings)\b/)) return "Hello! I am the Designix 360 AI Assistant. We offer 6 core services including Web & App Dev, and AI Automation. How can I help you today?"; 
+            else if (msg.match(/\b(logo|branding|graphic)\b/)) return "We offer complete graphic and logo design services, including custom brand strategies and 3D illustrations. Would you like a quote?"; 
+            else if (msg.match(/\b(web|next.js|node.js|html|css)\b/)) return "Yes! We build high-performance websites using modern stacks like Next.js, Node.js, HTML, and CSS."; 
+            else if (msg.match(/\b(app|react native|mobile)\b/)) return "We develop fast, cross-platform mobile apps for iOS and Android using React Native."; 
+            else if (msg.match(/\b(ai|automation|bot)\b/)) return "We provide smart AI chatbots and custom automation workflows to scale your business operations seamlessly."; 
+            else if (msg.match(/\b(mechanical|3d cad|engineering)\b/)) return "We offer precision 3D CAD modeling, product engineering, and industrial design services."; 
+            else if (msg.match(/\b(price|cost|how much|student discount)\b/)) return "For agency services, we provide tailored quotes. We also offer exclusive flat discounts for students on all Academy courses!"; 
+            else if (msg.match(/\b(course|courses|class|classes|learn|academy)\b/)) return "We offer live classes for Graphic & Logo Design, UI/UX Design, Web Dev, Marketing, and special AI tools training. Inquire now for special student discounts!"; 
+            else return "That's an interesting question! Since I am an AI, I suggest checking our 'Services' page or directly contacting us so our expert human team can assist you perfectly."; 
+        }
+        
+        document.getElementById('chat-form').addEventListener('submit', function(e) { e.preventDefault(); const input = document.getElementById('chat-input'); const message = input.value.trim(); if(!message) return; const msgBox = document.getElementById('chat-messages'); msgBox.innerHTML += `<div class="flex gap-2 items-start self-end max-w-[85%] justify-end ms-auto"><div class="bg-brand rounded-xl p-3 text-xs md:text-sm text-white">${message}</div></div>`; input.value = ''; msgBox.scrollTop = msgBox.scrollHeight; const botReply = getBotResponse(message); setTimeout(() => { msgBox.innerHTML += `<div class="flex gap-2 items-start max-w-[85%]"><span class="flex-shrink-0 w-6 h-6 rounded-full bg-white/10 flex items-center justify-center text-[10px]">🤖</span><div class="bg-white/10 rounded-xl p-3 text-xs md:text-sm text-gray-300 border border-white/5">${botReply}</div></div>`; msgBox.scrollTop = msgBox.scrollHeight; }, 800); });
     </script>
 </body>
 </html>
