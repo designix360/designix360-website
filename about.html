@@ -47,6 +47,10 @@
         .doodle-pattern { background-image: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cg stroke='%23ffffff' stroke-width='1.5' fill='none' fill-rule='evenodd' opacity='0.1'%3E%3Cpath d='M20 20h20v20H20zM80 80h20v20H80zM50 20A10 10 0 1 1 50 40A10 10 0 1 1 50 20zM20 80A10 10 0 1 1 20 100A10 10 0 1 1 20 80zM80 20l20 20M100 20L80 40M40 80l20 20M60 80L40 100'/%3E%3C/g%3E%3C/svg%3E"); background-size: 120px; -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 5%, rgba(0,0,0,0) 90%); }
         .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s ease; } .reveal.active { opacity: 1; transform: translateY(0); }
 
+        /* FIXED DROPDOWN STYLES */
+        .services-dropdown { visibility: hidden; opacity: 0; transform: translateY(10px); transition: all 0.3s ease; }
+        .group:hover .services-dropdown { visibility: visible; opacity: 1; transform: translateY(0); }
+
         /* Chatbot Scrollbar Style */
         #chat-messages::-webkit-scrollbar { width: 4px; }
         #chat-messages::-webkit-scrollbar-track { background: transparent; }
@@ -70,13 +74,15 @@
                 <a href="index.html" class="hover:text-white transition">Home</a>
                 <a href="about.html" class="text-white drop-shadow-md border-b border-flam_pink pb-1">About Us</a>
                 
-                <div class="relative group">
-                    <a href="services.html" class="flex items-center gap-1 hover:text-white transition py-4">Services <span class="text-[10px] opacity-60">▼</span></a>
-                    <div class="absolute left-0 top-full w-56 bg-surface_light/90 backdrop-blur-2xl border border-white/10 rounded-2xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0 p-2">
-                        <a href="graphic-design.html" class="block px-4 py-3 hover:bg-white/10 rounded-xl transition text-sm text-white">Graphic Design</a>
-                        <a href="web-dev.html" class="block px-4 py-3 hover:bg-white/10 rounded-xl transition text-sm text-white">Web Development</a>
-                        <a href="ui-ux.html" class="block px-4 py-3 hover:bg-white/10 rounded-xl transition text-sm text-white">UI/UX Design</a>
-                        <a href="marketing.html" class="block px-4 py-3 hover:bg-white/10 rounded-xl transition text-sm text-white">Social Media</a>
+                <div class="relative group h-full py-4">
+                    <a href="services.html" class="flex items-center gap-1 hover:text-white transition cursor-pointer">Services <span class="text-[10px] opacity-60">▼</span></a>
+                    <div class="services-dropdown absolute left-0 top-full w-max min-w-[240px] bg-[#0a0a0a]/95 backdrop-blur-2xl border border-white/10 rounded-2xl shadow-2xl p-3 flex flex-col gap-1">
+                        <a href="graphic-design.html" class="px-4 py-3 hover:bg-white/10 rounded-xl transition text-sm text-white whitespace-nowrap">Graphic Design</a>
+                        <a href="ui-ux.html" class="px-4 py-3 hover:bg-white/10 rounded-xl transition text-sm text-white whitespace-nowrap">UI/UX Design</a>
+                        <a href="web-dev.html" class="px-4 py-3 hover:bg-white/10 rounded-xl transition text-sm text-white whitespace-nowrap">Web Development</a>
+                        <a href="software-dev.html" class="px-4 py-3 hover:bg-white/10 rounded-xl transition text-sm text-white whitespace-nowrap">App Development</a>
+                        <a href="ai-automation.html" class="px-4 py-3 hover:bg-white/10 rounded-xl transition text-sm text-white whitespace-nowrap">AI Automation</a>
+                        <a href="mechanical-design.html" class="px-4 py-3 hover:bg-white/10 rounded-xl transition text-sm text-white whitespace-nowrap">Mechanical Design</a>
                     </div>
                 </div>
                 
@@ -93,16 +99,24 @@
         </div>
     </nav>
 
-    <div id="mobile-menu" class="fixed inset-0 bg-[#050505]/98 backdrop-blur-3xl z-[60] transform translate-x-full transition-transform duration-300 md:hidden flex flex-col px-8 pt-28 gap-6">
+    <div id="mobile-menu" class="fixed inset-0 bg-[#050505]/98 backdrop-blur-3xl z-[60] transform translate-x-full transition-transform duration-300 md:hidden flex flex-col px-8 pt-28 gap-6 overflow-y-auto">
         <button id="close-menu-btn" class="absolute top-6 right-6 text-white/70 hover:text-white p-2">
             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
         </button>
         <a href="index.html" class="text-3xl font-black text-gray-500 hover:text-white border-b border-white/10 pb-4 tracking-tighter">Home.</a>
         <a href="about.html" class="text-3xl font-black text-white border-b border-white/10 pb-4 tracking-tighter">About Us.</a>
-        <a href="services.html" class="text-3xl font-black text-gray-500 hover:text-white border-b border-white/10 pb-4 tracking-tighter">Services.</a>
+        <a href="services.html" class="text-3xl font-black text-gray-500 hover:text-white pb-2 tracking-tighter">Services.</a>
+        <div class="flex flex-col pl-4 gap-3 pb-3 border-b border-white/10">
+            <a href="graphic-design.html" class="text-lg font-bold text-gray-400 hover:text-brand">Graphic Design</a>
+            <a href="ui-ux.html" class="text-lg font-bold text-gray-400 hover:text-flam_pink">UI/UX Design</a>
+            <a href="web-dev.html" class="text-lg font-bold text-gray-400 hover:text-flam_purple">Web Development</a>
+            <a href="software-dev.html" class="text-lg font-bold text-gray-400 hover:text-brand">App Development</a>
+            <a href="ai-automation.html" class="text-lg font-bold text-gray-400 hover:text-flam_pink">AI Automation</a>
+            <a href="mechanical-design.html" class="text-lg font-bold text-gray-400 hover:text-flam_purple">Mechanical Design</a>
+        </div>
         <a href="portfolio.html" class="text-3xl font-black text-gray-500 hover:text-white border-b border-white/10 pb-4 tracking-tighter">Portfolio.</a>
         <a href="courses.html" class="text-3xl font-black text-gray-500 hover:text-white border-b border-white/10 pb-4 tracking-tighter">Academy.</a>
-        <a href="contact.html" class="text-3xl font-black text-flam_pink mt-4 tracking-tighter">Get Quote.</a>
+        <a href="contact.html" class="text-3xl font-black text-flam_pink mt-4 tracking-tighter">Contact.</a>
     </div>
 
     <header class="relative pt-48 pb-20 px-6 md:px-12 z-10 flex flex-col items-center justify-center overflow-hidden">
@@ -250,13 +264,13 @@
         function toggleChat() {
             document.getElementById('chat-window').classList.toggle('hidden');
         }
-        
-        // Mobile Menu Logic Added Here
+
+        // Mobile Menu JavaScript Logic added here
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const closeMenuBtn = document.getElementById('close-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.remove('translate-x-full'));
-        closeMenuBtn.addEventListener('click', () => mobileMenu.classList.add('translate-x-full'));
+        mobileMenuBtn.addEventListener('click', () => { mobileMenu.classList.remove('translate-x-full'); });
+        closeMenuBtn.addEventListener('click', () => { mobileMenu.classList.add('translate-x-full'); });
 
         function getBotResponse(message) {
             let msg = message.toLowerCase();
@@ -286,7 +300,7 @@
                 return "Our pricing is customized to give you the best value. Graphic design projects start at affordable rates, and full web development depends on the features. Feel free to use the Contact page for a quick quote!";
             } 
             else if (msg.match(/\b(service|services|what do you do|offer|build|make)\b/)) {
-                return "We offer 4 main services: 1. Graphic & Logo Design. 2. UI/UX Design. 3. Web Development. 4. Social Media Marketing. Which one are you interested in?";
+                return "We offer 6 main services: Graphic Design, UI/UX Design, Web Dev, App Dev, AI Automation, and Mechanical Design.";
             } 
             else if (msg.match(/\b(logo|branding|graphic|design|illustration|3d)\b/)) {
                 return "We have over 8 years of experience in Graphic Design! We create stunning logos, full brand identities, and even 3D cartoon illustrations. Check our Portfolio to see our masterpieces.";
